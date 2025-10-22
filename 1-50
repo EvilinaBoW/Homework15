@@ -1,0 +1,736 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+class Program
+    {
+        // ЗАДАНИЕ 1: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum1(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 2: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum2(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 3: Метод, возвращающий максимальное из трех переданных чисел
+        static int MaxOfThree(int a, int b, int c)
+        {
+            return Math.Max(a, Math.Max(b, c));
+        }
+
+        // ЗАДАНИЕ 4: Метод для определения, является ли число четным
+        static bool IsEven4(int number)
+        {
+            return number % 2 == 0;
+        }
+
+        // ЗАДАНИЕ 5: Метод для определения, является ли число четным
+        static bool IsEven5(int number)
+        {
+            return number % 2 == 0;
+        }
+
+        // ЗАДАНИЕ 6: Метод для определения, является ли число четным
+        static bool IsEven6(int number)
+        {
+            return number % 2 == 0;
+        }
+
+        // ЗАДАНИЕ 7: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum7(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 8: Метод, выводящий все числа в диапазоне от a до b
+        static void PrintRange8(int a, int b)
+        {
+            for (int i = a; i <= b; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+
+        // ЗАДАНИЕ 9: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum9(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 10: Метод, выводящий все числа в диапазоне от a до b
+        static void PrintRange10(int a, int b)
+        {
+            for (int i = a; i <= b; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+
+        // ЗАДАНИЕ 11: Метод для расчета факториала числа
+        static long Factorial(int n)
+        {
+            if (n < 0) return -1;
+            if (n == 0 || n == 1) return 1;
+
+            long result = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                result *= i;
+            }
+            return result;
+        }
+
+        // ЗАДАНИЕ 12: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum12(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 13: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum13(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 14: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum14(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 15: Метод для определения, является ли число четным
+        static bool IsEven15(int number)
+        {
+            return number % 2 == 0;
+        }
+
+        // ЗАДАНИЕ 16: Метод для определения, является ли число четным
+        static bool IsEven16(int number)
+        {
+            return number % 2 == 0;
+        }
+
+        // ЗАДАНИЕ 17: Метод, выводящий все числа в диапазоне от a до b
+        static void PrintRange17(int a, int b)
+        {
+            for (int i = a; i <= b; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+
+        // ЗАДАНИЕ 18: Метод, выводящий все числа в диапазоне от a до b
+        static void PrintRange18(int a, int b)
+        {
+            for (int i = a; i <= b; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+
+        // ЗАДАНИЕ 19: Метод, принимающий два целых числа и возвращающий их сумму
+        static int Sum19(int a, int b)
+        {
+            return a + b;
+        }
+
+        // ЗАДАНИЕ 20: Метод, выводящий все числа в диапазоне от a до b
+        static void PrintRange20(int a, int b)
+        {
+            for (int i = a; i <= b; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+
+        // ЗАДАНИЕ 21: Функция, возвращающая квадрат числа
+        static double Square21(double number)
+        {
+            return number * number;
+        }
+
+        // ЗАДАНИЕ 22: Функция, проверяющая, является ли строка палиндромом
+        static bool IsPalindrome22(string str)
+        {
+            if (string.IsNullOrEmpty(str)) return true;
+
+            string cleanStr = str.Replace(" ", "").ToLower();
+            int left = 0;
+            int right = cleanStr.Length - 1;
+
+            while (left < right)
+            {
+                if (cleanStr[left] != cleanStr[right])
+                    return false;
+                left++;
+                right--;
+            }
+            return true;
+        }
+
+        // ЗАДАНИЕ 23: Процедура, изменяющая значение переменной через ref
+        static void ModifyValue23(ref int value, int newValue)
+        {
+            value = newValue;
+        }
+
+        // ЗАДАНИЕ 24: Функция, возвращающая квадрат числа
+        static double Square24(double number)
+        {
+            return number * number;
+        }
+
+        // ЗАДАНИЕ 25: Процедура, изменяющая значение переменной через ref
+        static void ModifyValue25(ref int value, int newValue)
+        {
+            value = newValue;
+        }
+
+        // ЗАДАНИЕ 26: Функция, проверяющая, является ли строка палиндромом
+        static bool IsPalindrome26(string str)
+        {
+            if (string.IsNullOrEmpty(str)) return true;
+
+            string cleanStr = str.Replace(" ", "").ToLower();
+            int left = 0;
+            int right = cleanStr.Length - 1;
+
+            while (left < right)
+            {
+                if (cleanStr[left] != cleanStr[right])
+                    return false;
+                left++;
+                right--;
+            }
+            return true;
+        }
+
+        // ЗАДАНИЕ 27: Объяснение различия между процедурой и функцией на примере
+        static void DemonstrateDifference27()
+        {
+            Console.WriteLine("=== ЗАДАНИЕ 27: Различие между процедурой и функцией ===");
+
+            // Процедура - не возвращает значение
+            void ProcedureExample(int x)
+            {
+                Console.WriteLine($"Процедура: получено значение {x}");
+            }
+
+            // Функция - возвращает значение
+            int FunctionExample(int x)
+            {
+                return x * 2;
+            }
+
+            ProcedureExample(5);
+            Console.WriteLine($"Функция: результат = {FunctionExample(5)}");
+        }
+
+        // ЗАДАНИЕ 28: Процедура, которая выводит 'Hello, World!' на экран
+        static void PrintHelloWorld28()
+        {
+            Console.WriteLine("Hello, World!");
+        }
+
+        // ЗАДАНИЕ 29: Функция, возвращающая квадрат числа
+        static double Square29(double number)
+        {
+            return number * number;
+        }
+
+        // ЗАДАНИЕ 30: Процедура, изменяющая значение переменной через ref
+        static void ModifyValue30(ref int value, int newValue)
+        {
+            value = newValue;
+        }
+
+        // ЗАДАНИЕ 31: Объяснение различия между процедурой и функцией на примере
+        static void DemonstrateDifference31()
+        {
+            Console.WriteLine("=== ЗАДАНИЕ 31: Различие между процедурой и функцией ===");
+
+            // Процедура
+            void GreetProcedure(string name)
+            {
+                Console.WriteLine($"Привет, {name}!");
+            }
+
+            // Функция
+            string GreetFunction(string name)
+            {
+                return $"Привет, {name}!";
+            }
+
+            GreetProcedure("Анна");
+            string greeting = GreetFunction("Петр");
+            Console.WriteLine(greeting);
+        }
+
+        // ЗАДАНИЕ 32: Объяснение различия между процедурой и функцией на примере
+        static void DemonstrateDifference32()
+        {
+            Console.WriteLine("=== ЗАДАНИЕ 32: Различие между процедурой и функцией ===");
+
+            // Процедура (void) - выполняет действие
+            void PrintSumProcedure(int a, int b)
+            {
+                Console.WriteLine($"Сумма: {a + b}");
+            }
+
+            // Функция (возвращает значение) - вычисляет результат
+            int CalculateSumFunction(int a, int b)
+            {
+                return a + b;
+            }
+
+            PrintSumProcedure(3, 4);
+            int result = CalculateSumFunction(3, 4);
+            Console.WriteLine($"Результат функции: {result}");
+        }
+
+        // ЗАДАНИЕ 33: Функция, возвращающая квадрат числа
+        static double Square33(double number)
+        {
+            return number * number;
+        }
+
+        // ЗАДАНИЕ 34: Функция, возвращающая квадрат числа
+        static double Square34(double number)
+        {
+            return number * number;
+        }
+
+        // ЗАДАНИЕ 35: Объяснение различия между процедурой и функцией на примере
+        static void DemonstrateDifference35()
+        {
+            Console.WriteLine("=== ЗАДАНИЕ 35: Различие между процедурой и функцией ===");
+
+            int counter = 0;
+
+            // Процедура изменяет внешнее состояние
+            void IncrementProcedure()
+            {
+                counter++;
+                Console.WriteLine($"Счетчик: {counter}");
+            }
+
+            // Функция возвращает новое значение
+            int IncrementFunction(int value)
+            {
+                return value + 1;
+            }
+
+            IncrementProcedure();
+            counter = IncrementFunction(counter);
+            Console.WriteLine($"Новое значение: {counter}");
+        }
+
+        // ЗАДАНИЕ 36: Процедура, которая выводит 'Hello, World!' на экран
+        static void PrintHelloWorld36()
+        {
+            Console.WriteLine("Hello, World!");
+        }
+
+        // ЗАДАНИЕ 37: Процедура, которая выводит 'Hello, World!' на экран
+        static void PrintHelloWorld37()
+        {
+            Console.WriteLine("Hello, World!");
+        }
+
+        // ЗАДАНИЕ 38: Процедура, изменяющая значение переменной через ref
+        static void ModifyValue38(ref int value, int newValue)
+        {
+            value = newValue;
+        }
+
+        // ЗАДАНИЕ 39: Процедура, которая выводит 'Hello, World!' на экран
+        static void PrintHelloWorld39()
+        {
+            Console.WriteLine("Hello, World!");
+        }
+
+        // ЗАДАНИЕ 40: Объяснение различия между процедурой и функцией на примере
+        static void DemonstrateDifference40()
+        {
+            Console.WriteLine("=== ЗАДАНИЕ 40: Различие между процедурой и функцией ===");
+
+            // Процедура с ref параметром
+            void SwapProcedure(ref int a, ref int b)
+            {
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+
+            // Функция возвращает кортеж
+            (int, int) SwapFunction(int a, int b)
+            {
+                return (b, a);
+            }
+
+            int x = 5, y = 10;
+            Console.WriteLine($"До: x={x}, y={y}");
+            SwapProcedure(ref x, ref y);
+            Console.WriteLine($"После процедуры: x={x}, y={y}");
+
+            var result = SwapFunction(x, y);
+            Console.WriteLine($"Результат функции: {result}");
+        }
+
+        // ЗАДАНИЕ 41: Объяснение различия между процедурой и функцией на примере
+        static void DemonstrateDifference41()
+        {
+            Console.WriteLine("=== ЗАДАНИЕ 41: Различие между процедурой и функцией ===");
+
+            string[] names = { "Анна", "Петр", "Мария" };
+
+            // Процедура выводит список
+            void PrintNamesProcedure(string[] array)
+            {
+                foreach (string name in array)
+                {
+                    Console.WriteLine(name);
+                }
+            }
+
+            // Функция возвращает отформатированную строку
+            string FormatNamesFunction(string[] array)
+            {
+                return string.Join(", ", array);
+            }
+
+            Console.WriteLine("Процедура:");
+            PrintNamesProcedure(names);
+
+            Console.WriteLine("Функция:");
+            Console.WriteLine(FormatNamesFunction(names));
+        }
+
+        // ЗАДАНИЕ 42: Функция, проверяющая, является ли строка палиндромом
+        static bool IsPalindrome42(string str)
+        {
+            if (string.IsNullOrEmpty(str)) return true;
+
+            string cleanStr = str.Replace(" ", "").ToLower();
+            int left = 0;
+            int right = cleanStr.Length - 1;
+
+            while (left < right)
+            {
+                if (cleanStr[left] != cleanStr[right])
+                    return false;
+                left++;
+                right--;
+            }
+            return true;
+        }
+
+        // ЗАДАНИЕ 43: Объяснение различия между процедурой и функцией на примере
+        static void DemonstrateDifference43()
+        {
+            Console.WriteLine("=== ЗАДАНИЕ 43: Различие между процедурой и функцией ===");
+
+            // Процедура - side effects
+            void ProcessNumberProcedure(int number)
+            {
+                Console.WriteLine($"Обработка числа: {number}");
+                Console.WriteLine($"Квадрат: {number * number}");
+                Console.WriteLine($"Куб: {number * number * number}");
+            }
+
+            // Функция - чистая функция
+            (int square, int cube) CalculatePowersFunction(int number)
+            {
+                return (number * number, number * number * number);
+            }
+
+            ProcessNumberProcedure(3);
+            var result = CalculatePowersFunction(3);
+            Console.WriteLine($"Квадрат: {result.square}, Куб: {result.cube}");
+        }
+
+        // ЗАДАНИЕ 44: Процедура, которая выводит 'Hello, World!' на экран
+        static void PrintHelloWorld44()
+        {
+            Console.WriteLine("Hello, World!");
+        }
+
+        // ЗАДАНИЕ 45: Процедура, изменяющая значение переменной через ref
+        static void ModifyValue45(ref int value, int newValue)
+        {
+            value = newValue;
+        }
+
+        // ЗАДАНИЕ 46: Метод для поиска минимального элемента в массиве
+        static int FindMin46(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int min = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                    min = array[i];
+            }
+            return min;
+        }
+
+        // ЗАДАНИЕ 47: Метод, принимающий массив и вычисляющий его среднее значение
+        static double CalculateAverage47(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int sum = 0;
+            foreach (int num in array)
+            {
+                sum += num;
+            }
+            return (double)sum / array.Length;
+        }
+
+        // ЗАДАНИЕ 48: Метод для копирования массива
+        static int[] CopyArray48(int[] source)
+        {
+            if (source == null) return null;
+
+            int[] copy = new int[source.Length];
+            for (int i = 0; i < source.Length; i++)
+            {
+                copy[i] = source[i];
+            }
+            return copy;
+        }
+
+        // ЗАДАНИЕ 49: Метод, принимающий массив и вычисляющий его среднее значение
+        static double CalculateAverage49(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int sum = 0;
+            foreach (int num in array)
+            {
+                sum += num;
+            }
+            return (double)sum / array.Length;
+        }
+
+        // ЗАДАНИЕ 50: Метод для поиска минимального элемента в массиве
+        static int FindMin50(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int min = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                    min = array[i];
+            }
+            return min;
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== ВЫПОЛНЕНИЕ ВСЕХ 50 ЗАДАНИЙ ===\n");
+
+            // Задание 1
+            Console.WriteLine("ЗАДАНИЕ 1: Sum1(5, 3) = " + Sum1(5, 3));
+
+            // Задание 2
+            Console.WriteLine("ЗАДАНИЕ 2: Sum2(10, 20) = " + Sum2(10, 20));
+
+            // Задание 3
+            Console.WriteLine("ЗАДАНИЕ 3: MaxOfThree(1, 5, 3) = " + MaxOfThree(1, 5, 3));
+
+            // Задание 4
+            Console.WriteLine("ЗАДАНИЕ 4: IsEven4(4) = " + IsEven4(4));
+
+            // Задание 5
+            Console.WriteLine("ЗАДАНИЕ 5: IsEven5(7) = " + IsEven5(7));
+
+            // Задание 6
+            Console.WriteLine("ЗАДАНИЕ 6: IsEven6(10) = " + IsEven6(10));
+
+            // Задание 7
+            Console.WriteLine("ЗАДАНИЕ 7: Sum7(-5, 15) = " + Sum7(-5, 15));
+
+            // Задание 8
+            Console.Write("ЗАДАНИЕ 8: ");
+            PrintRange8(1, 5);
+
+            // Задание 9
+            Console.WriteLine("ЗАДАНИЕ 9: Sum9(100, 200) = " + Sum9(100, 200));
+
+            // Задание 10
+            Console.Write("ЗАДАНИЕ 10: ");
+            PrintRange10(10, 15);
+
+            // Задание 11
+            Console.WriteLine("ЗАДАНИЕ 11: Factorial(5) = " + Factorial(5));
+
+            // Задание 12
+            Console.WriteLine("ЗАДАНИЕ 12: Sum12(8, 12) = " + Sum12(8, 12));
+
+            // Задание 13
+            Console.WriteLine("ЗАДАНИЕ 13: Sum13(0, 0) = " + Sum13(0, 0));
+
+            // Задание 14
+            Console.WriteLine("ЗАДАНИЕ 14: Sum14(-3, -7) = " + Sum14(-3, -7));
+
+            // Задание 15
+            Console.WriteLine("ЗАДАНИЕ 15: IsEven15(0) = " + IsEven15(0));
+
+            // Задание 16
+            Console.WriteLine("ЗАДАНИЕ 16: IsEven16(15) = " + IsEven16(15));
+
+            // Задание 17
+            Console.Write("ЗАДАНИЕ 17: ");
+            PrintRange17(3, 8);
+
+            // Задание 18
+            Console.Write("ЗАДАНИЕ 18: ");
+            PrintRange18(-2, 2);
+
+            // Задание 19
+            Console.WriteLine("ЗАДАНИЕ 19: Sum19(25, 75) = " + Sum19(25, 75));
+
+            // Задание 20
+            Console.Write("ЗАДАНИЕ 20: ");
+            PrintRange20(100, 105);
+
+            // Задание 21
+            Console.WriteLine("ЗАДАНИЕ 21: Square21(4) = " + Square21(4));
+
+            // Задание 22
+            Console.WriteLine("ЗАДАНИЕ 22: IsPalindrome22(\"радар\") = " + IsPalindrome22("радар"));
+
+            // Задание 23
+            int value23 = 50;
+            Console.WriteLine($"ЗАДАНИЕ 23: До: {value23}");
+            ModifyValue23(ref value23, 100);
+            Console.WriteLine($"ЗАДАНИЕ 23: После: {value23}");
+
+            // Задание 24
+            Console.WriteLine("ЗАДАНИЕ 24: Square24(2.5) = " + Square24(2.5));
+
+            // Задание 25
+            int value25 = 200;
+            Console.WriteLine($"ЗАДАНИЕ 25: До: {value25}");
+            ModifyValue25(ref value25, 300);
+            Console.WriteLine($"ЗАДАНИЕ 25: После: {value25}");
+
+            // Задание 26
+            Console.WriteLine("ЗАДАНИЕ 26: IsPalindrome26(\"привет\") = " + IsPalindrome26("привет"));
+
+            // Задание 27
+            DemonstrateDifference27();
+
+            // Задание 28
+            Console.Write("ЗАДАНИЕ 28: ");
+            PrintHelloWorld28();
+
+            // Задание 29
+            Console.WriteLine("ЗАДАНИЕ 29: Square29(6) = " + Square29(6));
+
+            // Задание 30
+            int value30 = 400;
+            Console.WriteLine($"ЗАДАНИЕ 30: До: {value30}");
+            ModifyValue30(ref value30, 500);
+            Console.WriteLine($"ЗАДАНИЕ 30: После: {value30}");
+
+            // Задание 31
+            DemonstrateDifference31();
+
+            // Задание 32
+            DemonstrateDifference32();
+
+            // Задание 33
+            Console.WriteLine("ЗАДАНИЕ 33: Square33(10) = " + Square33(10));
+
+            // Задание 34
+            Console.WriteLine("ЗАДАНИЕ 34: Square34(1.5) = " + Square34(1.5));
+
+            // Задание 35
+            DemonstrateDifference35();
+
+            // Задание 36
+            Console.Write("ЗАДАНИЕ 36: ");
+            PrintHelloWorld36();
+
+            // Задание 37
+            Console.Write("ЗАДАНИЕ 37: ");
+            PrintHelloWorld37();
+
+            // Задание 38
+            int value38 = 600;
+            Console.WriteLine($"ЗАДАНИЕ 38: До: {value38}");
+            ModifyValue38(ref value38, 700);
+            Console.WriteLine($"ЗАДАНИЕ 38: После: {value38}");
+
+            // Задание 39
+            Console.Write("ЗАДАНИЕ 39: ");
+            PrintHelloWorld39();
+
+            // Задание 40
+            DemonstrateDifference40();
+
+            // Задание 41
+            DemonstrateDifference41();
+
+            // Задание 42
+            Console.WriteLine("ЗАДАНИЕ 42: IsPalindrome42(\"А роза упала на лапу Азора\") = " + IsPalindrome42("А роза упала на лапу Азора"));
+
+            // Задание 43
+            DemonstrateDifference43();
+
+            // Задание 44
+            Console.Write("ЗАДАНИЕ 44: ");
+            PrintHelloWorld44();
+
+            // Задание 45
+            int value45 = 800;
+            Console.WriteLine($"ЗАДАНИЕ 45: До: {value45}");
+            ModifyValue45(ref value45, 900);
+            Console.WriteLine($"ЗАДАНИЕ 45: После: {value45}");
+
+            // Задание 46
+            int[] array46 = { 3, 1, 4, 1, 5, 9, 2 };
+            Console.WriteLine("ЗАДАНИЕ 46: FindMin46([3,1,4,1,5,9,2]) = " + FindMin46(array46));
+
+            // Задание 47
+            int[] array47 = { 1, 2, 3, 4, 5 };
+            Console.WriteLine("ЗАДАНИЕ 47: CalculateAverage47([1,2,3,4,5]) = " + CalculateAverage47(array47));
+
+            // Задание 48
+            int[] array48 = { 10, 20, 30 };
+            int[] copiedArray48 = CopyArray48(array48);
+            Console.WriteLine("ЗАДАНИЕ 48: CopyArray48([10,20,30]) = [" + string.Join(", ", copiedArray48) + "]");
+
+            // Задание 49
+            int[] array49 = { 2, 4, 6, 8, 10 };
+            Console.WriteLine("ЗАДАНИЕ 49: CalculateAverage49([2,4,6,8,10]) = " + CalculateAverage49(array49));
+
+            // Задание 50
+            int[] array50 = { 9, 8, 7, 6, 5 };
+            Console.WriteLine("ЗАДАНИЕ 50: FindMin50([9,8,7,6,5]) = " + FindMin50(array50));
+
+            Console.WriteLine("\n=== ВСЕ 50 ЗАДАНИЙ ВЫПОЛНЕНЫ ===");
+        }
+    }
+}
