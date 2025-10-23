@@ -1,0 +1,719 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+class Program
+    {
+        // ЗАДАНИЕ 51: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength51(string str)
+        {
+            return str.Length;
+        }
+
+        // ЗАДАНИЕ 52: Метод для поиска минимального элемента в массиве
+        static int FindMin52(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int min = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                    min = array[i];
+            }
+            return min;
+        }
+
+        // ЗАДАНИЕ 53: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength53(string str)
+        {
+            return str.Length;
+        }
+
+        // ЗАДАНИЕ 54: Метод для поиска минимального элемента в массиве
+        static int FindMin54(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int min = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                    min = array[i];
+            }
+            return min;
+        }
+
+        // ЗАДАНИЕ 55: Перегруженный метод для сложения двух и трех чисел
+        static int Add55(int a, int b)
+        {
+            return a + b;
+        }
+
+        static int Add55(int a, int b, int c)
+        {
+            return a + b + c;
+        }
+
+        // ЗАДАНИЕ 56: Метод, принимающий массив и вычисляющий его среднее значение
+        static double CalculateAverage56(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int sum = 0;
+            foreach (int num in array)
+            {
+                sum += num;
+            }
+            return (double)sum / array.Length;
+        }
+
+        // ЗАДАНИЕ 57: Метод, принимающий массив и вычисляющий его среднее значение
+        static double CalculateAverage57(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int sum = 0;
+            foreach (int num in array)
+            {
+                sum += num;
+            }
+            return (double)sum / array.Length;
+        }
+
+        // ЗАДАНИЕ 58: Перегруженный метод для сложения двух и трех чисел
+        static double Add58(double a, double b)
+        {
+            return a + b;
+        }
+
+        static double Add58(double a, double b, double c)
+        {
+            return a + b + c;
+        }
+
+        // ЗАДАНИЕ 59: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength59(string str)
+        {
+            return str?.Length ?? 0;
+        }
+
+        // ЗАДАНИЕ 60: Метод, принимающий массив и вычисляющий его среднее значение
+        static double CalculateAverage60(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int sum = 0;
+            foreach (int num in array)
+            {
+                sum += num;
+            }
+            return (double)sum / array.Length;
+        }
+
+        // ЗАДАНИЕ 61: Перегруженный метод для сложения двух и трех чисел
+        static decimal Add61(decimal a, decimal b)
+        {
+            return a + b;
+        }
+
+        static decimal Add61(decimal a, decimal b, decimal c)
+        {
+            return a + b + c;
+        }
+
+        // ЗАДАНИЕ 62: Метод, принимающий массив и вычисляющий его среднее значение
+        static double CalculateAverage62(double[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            double sum = 0;
+            foreach (double num in array)
+            {
+                sum += num;
+            }
+            return sum / array.Length;
+        }
+
+        // ЗАДАНИЕ 63: Метод для копирования массива
+        static int[] CopyArray63(int[] source)
+        {
+            if (source == null) return null;
+
+            int[] copy = new int[source.Length];
+            Array.Copy(source, copy, source.Length);
+            return copy;
+        }
+
+        // ЗАДАНИЕ 64: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength64(string str)
+        {
+            return str.Length;
+        }
+
+        // ЗАДАНИЕ 65: Метод для копирования массива
+        static string[] CopyArray65(string[] source)
+        {
+            if (source == null) return null;
+
+            string[] copy = new string[source.Length];
+            Array.Copy(source, copy, source.Length);
+            return copy;
+        }
+
+        // ЗАДАНИЕ 66: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength66(string str)
+        {
+            return str?.Length ?? 0;
+        }
+
+        // ЗАДАНИЕ 67: Перегруженный метод для сложения двух и трех чисел
+        static float Add67(float a, float b)
+        {
+            return a + b;
+        }
+
+        static float Add67(float a, float b, float c)
+        {
+            return a + b + c;
+        }
+
+        // ЗАДАНИЕ 68: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength68(string str)
+        {
+            return str.Length;
+        }
+
+        // ЗАДАНИЕ 69: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength69(string str)
+        {
+            return str?.Length ?? 0;
+        }
+
+        // ЗАДАНИЕ 70: Перегруженный метод для сложения двух и трех чисел
+        static long Add70(long a, long b)
+        {
+            return a + b;
+        }
+
+        static long Add70(long a, long b, long c)
+        {
+            return a + b + c;
+        }
+
+        // ЗАДАНИЕ 71: Метод, принимающий строку и возвращающий ее длину
+        static int GetStringLength71(string str)
+        {
+            return str.Length;
+        }
+
+        // ЗАДАНИЕ 72: Метод, принимающий массив и вычисляющий его среднее значение
+        static decimal CalculateAverage72(decimal[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            decimal sum = 0;
+            foreach (decimal num in array)
+            {
+                sum += num;
+            }
+            return sum / array.Length;
+        }
+
+        // ЗАДАНИЕ 73: Метод для поиска минимального элемента в массиве
+        static double FindMin73(double[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            double min = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                    min = array[i];
+            }
+            return min;
+        }
+
+        // ЗАДАНИЕ 74: Перегруженный метод для сложения двух и трех чисел
+        static int Add74(int a, int b)
+        {
+            return a + b;
+        }
+
+        static int Add74(int a, int b, int c)
+        {
+            return a + b + c;
+        }
+
+        // ЗАДАНИЕ 75: Метод для поиска минимального элемента в массиве
+        static int FindMin75(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Массив не может быть пустым");
+
+            int min = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                    min = array[i];
+            }
+            return min;
+        }
+
+        // ЗАДАНИЕ 76: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateData76(int data)
+        {
+            if (data < 0)
+                return -1; // код ошибки для отрицательных чисел
+            if (data > 100)
+                return -2; // код ошибки для чисел больше 100
+
+            return 0; // успех
+        }
+
+        // ЗАДАНИЕ 77: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateString77(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return -1; // код ошибки для пустой строки
+            if (str.Length > 50)
+                return -2; // код ошибки для слишком длинной строки
+
+            return 0; // успех
+        }
+
+        // ЗАДАНИЕ 78: Функция, проверяющая делимость на 3 и возвращающая true/false
+        static bool IsDivisibleBy378(int number)
+        {
+            return number % 3 == 0;
+        }
+
+        // ЗАДАНИЕ 79: Функция, проверяющая делимость на 3 и возвращающая true/false
+        static bool IsDivisibleBy379(int number)
+        {
+            return number % 3 == 0;
+        }
+
+        // ЗАДАНИЕ 80: Функция, использующая return для выхода из метода до конца выполнения
+        static string ProcessData80(int value)
+        {
+            if (value < 0)
+                return "Ошибка: отрицательное число";
+
+            if (value == 0)
+                return "Нулевое значение";
+
+            // Дальнейшая обработка только для положительных чисел
+            return $"Обработанное значение: {value * 2}";
+        }
+
+        // ЗАДАНИЕ 81: Функция, возвращающая null, если строка пустая
+        static string ProcessString81(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+                return null;
+
+            return str.ToUpper();
+        }
+
+        // ЗАДАНИЕ 82: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateAge82(int age)
+        {
+            if (age < 0)
+                return -1; // код ошибки для отрицательного возраста
+            if (age > 150)
+                return -2; // код ошибки для нереалистичного возраста
+
+            return 0; // успех
+        }
+
+        // ЗАДАНИЕ 83: Функция, использующая return для выхода из метода до конца выполнения
+        static int CalculateSquare83(int number)
+        {
+            if (number < -1000 || number > 1000)
+                return -1; // выход при недопустимых значениях
+
+            return number * number;
+        }
+
+        // ЗАДАНИЕ 84: Функция с несколькими return, которые завершат выполнение в зависимости от условий
+        static string EvaluateGrade84(int score)
+        {
+            if (score >= 90) return "Отлично";
+            if (score >= 75) return "Хорошо";
+            if (score >= 60) return "Удовлетворительно";
+            if (score >= 0) return "Неудовлетворительно";
+
+            return "Некорректная оценка";
+        }
+
+        // ЗАДАНИЕ 85: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateEmail85(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return -1;
+            if (!email.Contains("@"))
+                return -2;
+            if (email.Length < 5)
+                return -3;
+
+            return 0;
+        }
+
+        // ЗАДАНИЕ 86: Функция с несколькими return, которые завершат выполнение в зависимости от условий
+        static string GetSeason86(int month)
+        {
+            if (month == 12 || month == 1 || month == 2) return "Зима";
+            if (month >= 3 && month <= 5) return "Весна";
+            if (month >= 6 && month <= 8) return "Лето";
+            if (month >= 9 && month <= 11) return "Осень";
+
+            return "Некорректный месяц";
+        }
+
+        // ЗАДАНИЕ 87: Функция, использующая return для выхода из метода до конца выполнения
+        static double SafeDivide87(double a, double b)
+        {
+            if (b == 0)
+                return double.NaN; // выход при делении на ноль
+
+            return a / b;
+        }
+
+        // ЗАДАНИЕ 88: Функция, проверяющая делимость на 3 и возвращающая true/false
+        static bool IsDivisibleBy388(int number)
+        {
+            return number % 3 == 0;
+        }
+
+        // ЗАДАНИЕ 89: Функция, использующая return для выхода из метода до конца выполнения
+        static string CheckPassword89(string password)
+        {
+            if (string.IsNullOrEmpty(password))
+                return "Пароль не может быть пустым";
+
+            if (password.Length < 8)
+                return "Пароль слишком короткий";
+
+            return "Пароль принят";
+        }
+
+        // ЗАДАНИЕ 90: Функция с несколькими return, которые завершат выполнение в зависимости от условий
+        static string GetTimeOfDay90(int hour)
+        {
+            if (hour >= 5 && hour < 12) return "Утро";
+            if (hour >= 12 && hour < 17) return "День";
+            if (hour >= 17 && hour < 22) return "Вечер";
+            if (hour >= 22 || hour < 5) return "Ночь";
+
+            return "Некорректное время";
+        }
+
+        // ЗАДАНИЕ 91: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateTemperature91(double temperature)
+        {
+            if (temperature < -273.15)
+                return -1; // абсолютный ноль
+            if (temperature > 10000)
+                return -2; // нереалистично высокая температура
+
+            return 0;
+        }
+
+        // ЗАДАНИЕ 92: Функция, возвращающая null, если строка пустая
+        static string ReverseString92(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return null;
+
+            char[] charArray = str.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
+
+        // ЗАДАНИЕ 93: Функция, использующая return для выхода из метода до конца выполнения
+        static int[] CreateArray93(int size)
+        {
+            if (size <= 0)
+                return null;
+            if (size > 1000)
+                return new int[0]; // возвращаем пустой массив
+
+            return new int[size];
+        }
+
+        // ЗАДАНИЕ 94: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateCoordinates94(double x, double y)
+        {
+            if (double.IsNaN(x) || double.IsNaN(y))
+                return -1;
+            if (double.IsInfinity(x) || double.IsInfinity(y))
+                return -2;
+
+            return 0;
+        }
+
+        // ЗАДАНИЕ 95: Функция, проверяющая делимость на 3 и возвращающая true/false
+        static bool IsDivisibleBy395(int number)
+        {
+            return number % 3 == 0;
+        }
+
+        // ЗАДАНИЕ 96: Функция, проверяющая делимость на 3 и возвращающая true/false
+        static bool IsDivisibleBy396(long number)
+        {
+            return number % 3 == 0;
+        }
+
+        // ЗАДАНИЕ 97: Функция, проверяющая делимость на 3 и возвращающая true/false
+        static bool IsDivisibleBy397(int number)
+        {
+            return number % 3 == 0;
+        }
+
+        // ЗАДАНИЕ 98: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateFileSize98(long fileSize)
+        {
+            if (fileSize < 0)
+                return -1;
+            if (fileSize > 1024 * 1024 * 1024) // 1 GB
+                return -2;
+
+            return 0;
+        }
+
+        // ЗАДАНИЕ 99: Функция, использующая return для выхода из метода до конца выполнения
+        static string FormatNumber99(int number)
+        {
+            if (number < 0)
+                return $"({Math.Abs(number)})";
+
+            return number.ToString();
+        }
+
+        // ЗАДАНИЕ 100: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidateUsername100(string username)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                return -1;
+            if (username.Length < 3)
+                return -2;
+            if (username.Length > 20)
+                return -3;
+            if (username.Contains(" "))
+                return -4;
+
+            return 0;
+        }
+
+        static void Main(string[] args)
+        {
+
+            // Задание 51
+            Console.WriteLine("ЗАДАНИЕ 51: GetStringLength51('Hello') = " + GetStringLength51("Hello"));
+
+            // Задание 52
+            int[] array52 = { 5, 2, 8, 1, 9 };
+            Console.WriteLine("ЗАДАНИЕ 52: FindMin52([5,2,8,1,9]) = " + FindMin52(array52));
+
+            // Задание 53
+            Console.WriteLine("ЗАДАНИЕ 53: GetStringLength53('Programming') = " + GetStringLength53("Programming"));
+
+            // Задание 54
+            int[] array54 = { 10, -5, 8, 3, -2 };
+            Console.WriteLine("ЗАДАНИЕ 54: FindMin54([10,-5,8,3,-2]) = " + FindMin54(array54));
+
+            // Задание 55
+            Console.WriteLine("ЗАДАНИЕ 55: Add55(2, 3) = " + Add55(2, 3));
+            Console.WriteLine("ЗАДАНИЕ 55: Add55(1, 2, 3) = " + Add55(1, 2, 3));
+
+            // Задание 56
+            int[] array56 = { 1, 2, 3, 4, 5 };
+            Console.WriteLine("ЗАДАНИЕ 56: CalculateAverage56([1,2,3,4,5]) = " + CalculateAverage56(array56));
+
+            // Задание 57
+            int[] array57 = { 10, 20, 30 };
+            Console.WriteLine("ЗАДАНИЕ 57: CalculateAverage57([10,20,30]) = " + CalculateAverage57(array57));
+
+            // Задание 58
+            Console.WriteLine("ЗАДАНИЕ 58: Add58(1.5, 2.5) = " + Add58(1.5, 2.5));
+            Console.WriteLine("ЗАДАНИЕ 58: Add58(1.1, 2.2, 3.3) = " + Add58(1.1, 2.2, 3.3));
+
+            // Задание 59
+            Console.WriteLine("ЗАДАНИЕ 59: GetStringLength59(null) = " + GetStringLength59(null));
+
+            // Задание 60
+            int[] array60 = { 2, 4, 6, 8, 10 };
+            Console.WriteLine("ЗАДАНИЕ 60: CalculateAverage60([2,4,6,8,10]) = " + CalculateAverage60(array60));
+
+            // Задание 61
+            Console.WriteLine("ЗАДАНИЕ 61: Add61(1.5m, 2.5m) = " + Add61(1.5m, 2.5m));
+            Console.WriteLine("ЗАДАНИЕ 61: Add61(1.1m, 2.2m, 3.3m) = " + Add61(1.1m, 2.2m, 3.3m));
+
+            // Задание 62
+            double[] array62 = { 1.5, 2.5, 3.5 };
+            Console.WriteLine("ЗАДАНИЕ 62: CalculateAverage62([1.5,2.5,3.5]) = " + CalculateAverage62(array62));
+
+            // Задание 63
+            int[] array63 = { 1, 2, 3 };
+            int[] copied63 = CopyArray63(array63);
+            Console.WriteLine("ЗАДАНИЕ 63: CopyArray63([1,2,3]) = [" + string.Join(", ", copied63) + "]");
+
+            // Задание 64
+            Console.WriteLine("ЗАДАНИЕ 64: GetStringLength64('CSharp') = " + GetStringLength64("CSharp"));
+
+            // Задание 65
+            string[] array65 = { "a", "b", "c" };
+            string[] copied65 = CopyArray65(array65);
+            Console.WriteLine("ЗАДАНИЕ 65: CopyArray65(['a','b','c']) = [" + string.Join(", ", copied65) + "]");
+
+            // Задание 66
+            Console.WriteLine("ЗАДАНИЕ 66: GetStringLength66('') = " + GetStringLength66(""));
+
+            // Задание 67
+            Console.WriteLine("ЗАДАНИЕ 67: Add67(1.5f, 2.5f) = " + Add67(1.5f, 2.5f));
+            Console.WriteLine("ЗАДАНИЕ 67: Add67(1.1f, 2.2f, 3.3f) = " + Add67(1.1f, 2.2f, 3.3f));
+
+            // Задание 68
+            Console.WriteLine("ЗАДАНИЕ 68: GetStringLength68('Methods') = " + GetStringLength68("Methods"));
+
+            // Задание 69
+            Console.WriteLine("ЗАДАНИЕ 69: GetStringLength69('') = " + GetStringLength69(""));
+
+            // Задание 70
+            Console.WriteLine("ЗАДАНИЕ 70: Add70(100L, 200L) = " + Add70(100L, 200L));
+            Console.WriteLine("ЗАДАНИЕ 70: Add70(1000L, 2000L, 3000L) = " + Add70(1000L, 2000L, 3000L));
+
+            // Задание 71
+            Console.WriteLine("ЗАДАНИЕ 71: GetStringLength71('Programming') = " + GetStringLength71("Programming"));
+
+            // Задание 72
+            decimal[] array72 = { 1.1m, 2.2m, 3.3m };
+            Console.WriteLine("ЗАДАНИЕ 72: CalculateAverage72([1.1,2.2,3.3]) = " + CalculateAverage72(array72));
+
+            // Задание 73
+            double[] array73 = { 3.5, 1.2, 4.8, 0.5 };
+            Console.WriteLine("ЗАДАНИЕ 73: FindMin73([3.5,1.2,4.8,0.5]) = " + FindMin73(array73));
+
+            // Задание 74
+            Console.WriteLine("ЗАДАНИЕ 74: Add74(5, 10) = " + Add74(5, 10));
+            Console.WriteLine("ЗАДАНИЕ 74: Add74(1, 2, 3) = " + Add74(1, 2, 3));
+
+            // Задание 75
+            int[] array75 = { 7, 3, 9, 1, 6 };
+            Console.WriteLine("ЗАДАНИЕ 75: FindMin75([7,3,9,1,6]) = " + FindMin75(array75));
+
+            // Задание 76
+            Console.WriteLine("ЗАДАНИЕ 76: ValidateData76(50) = " + ValidateData76(50));
+            Console.WriteLine("ЗАДАНИЕ 76: ValidateData76(-5) = " + ValidateData76(-5));
+
+            // Задание 77
+            Console.WriteLine("ЗАДАНИЕ 77: ValidateString77('test') = " + ValidateString77("test"));
+            Console.WriteLine("ЗАДАНИЕ 77: ValidateString77('') = " + ValidateString77(""));
+
+            // Задание 78
+            Console.WriteLine("ЗАДАНИЕ 78: IsDivisibleBy378(9) = " + IsDivisibleBy378(9));
+            Console.WriteLine("ЗАДАНИЕ 78: IsDivisibleBy378(10) = " + IsDivisibleBy378(10));
+
+            // Задание 79
+            Console.WriteLine("ЗАДАНИЕ 79: IsDivisibleBy379(15) = " + IsDivisibleBy379(15));
+            Console.WriteLine("ЗАДАНИЕ 79: IsDivisibleBy379(16) = " + IsDivisibleBy379(16));
+
+            // Задание 80
+            Console.WriteLine("ЗАДАНИЕ 80: ProcessData80(5) = " + ProcessData80(5));
+            Console.WriteLine("ЗАДАНИЕ 80: ProcessData80(-3) = " + ProcessData80(-3));
+
+            // Задание 81
+            Console.WriteLine("ЗАДАНИЕ 81: ProcessString81('hello') = " + ProcessString81("hello"));
+            Console.WriteLine("ЗАДАНИЕ 81: ProcessString81('') = " + ProcessString81(""));
+
+            // Задание 82
+            Console.WriteLine("ЗАДАНИЕ 82: ValidateAge82(25) = " + ValidateAge82(25));
+            Console.WriteLine("ЗАДАНИЕ 82: ValidateAge82(-5) = " + ValidateAge82(-5));
+
+            // Задание 83
+            Console.WriteLine("ЗАДАНИЕ 83: CalculateSquare83(5) = " + CalculateSquare83(5));
+            Console.WriteLine("ЗАДАНИЕ 83: CalculateSquare83(1500) = " + CalculateSquare83(1500));
+
+            // Задание 84
+            Console.WriteLine("ЗАДАНИЕ 84: EvaluateGrade84(95) = " + EvaluateGrade84(95));
+            Console.WriteLine("ЗАДАНИЕ 84: EvaluateGrade84(65) = " + EvaluateGrade84(65));
+
+            // Задание 85
+            Console.WriteLine("ЗАДАНИЕ 85: ValidateEmail85('test@mail.com') = " + ValidateEmail85("test@mail.com"));
+            Console.WriteLine("ЗАДАНИЕ 85: ValidateEmail85('invalid') = " + ValidateEmail85("invalid"));
+
+            // Задание 86
+            Console.WriteLine("ЗАДАНИЕ 86: GetSeason86(6) = " + GetSeason86(6));
+            Console.WriteLine("ЗАДАНИЕ 86: GetSeason86(13) = " + GetSeason86(13));
+
+            // Задание 87
+            Console.WriteLine("ЗАДАНИЕ 87: SafeDivide87(10, 2) = " + SafeDivide87(10, 2));
+            Console.WriteLine("ЗАДАНИЕ 87: SafeDivide87(10, 0) = " + SafeDivide87(10, 0));
+
+            // Задание 88
+            Console.WriteLine("ЗАДАНИЕ 88: IsDivisibleBy388(21) = " + IsDivisibleBy388(21));
+            Console.WriteLine("ЗАДАНИЕ 88: IsDivisibleBy388(22) = " + IsDivisibleBy388(22));
+
+            // Задание 89
+            Console.WriteLine("ЗАДАНИЕ 89: CheckPassword89('short') = " + CheckPassword89("short"));
+            Console.WriteLine("ЗАДАНИЕ 89: CheckPassword89('longpassword') = " + CheckPassword89("longpassword"));
+
+            // Задание 90
+            Console.WriteLine("ЗАДАНИЕ 90: GetTimeOfDay90(14) = " + GetTimeOfDay90(14));
+            Console.WriteLine("ЗАДАНИЕ 90: GetTimeOfDay90(25) = " + GetTimeOfDay90(25));
+
+            // Задание 91
+            Console.WriteLine("ЗАДАНИЕ 91: ValidateTemperature91(25.5) = " + ValidateTemperature91(25.5));
+            Console.WriteLine("ЗАДАНИЕ 91: ValidateTemperature91(-300) = " + ValidateTemperature91(-300));
+
+            // Задание 92
+            Console.WriteLine("ЗАДАНИЕ 92: ReverseString92('hello') = " + ReverseString92("hello"));
+            Console.WriteLine("ЗАДАНИЕ 92: ReverseString92('') = " + ReverseString92(""));
+
+            // Задание 93
+            int[] array93 = CreateArray93(5);
+            Console.WriteLine("ЗАДАНИЕ 93: CreateArray93(5) длина = " + (array93?.Length ?? 0));
+
+            // Задание 94
+            Console.WriteLine("ЗАДАНИЕ 94: ValidateCoordinates94(10.5, 20.3) = " + ValidateCoordinates94(10.5, 20.3));
+            Console.WriteLine("ЗАДАНИЕ 94: ValidateCoordinates94(double.NaN, 20.3) = " + ValidateCoordinates94(double.NaN, 20.3));
+
+            // Задание 95
+            Console.WriteLine("ЗАДАНИЕ 95: IsDivisibleBy395(27) = " + IsDivisibleBy395(27));
+            Console.WriteLine("ЗАДАНИЕ 95: IsDivisibleBy395(28) = " + IsDivisibleBy395(28));
+
+            // Задание 96
+            Console.WriteLine("ЗАДАНИЕ 96: IsDivisibleBy396(30L) = " + IsDivisibleBy396(30L));
+            Console.WriteLine("ЗАДАНИЕ 96: IsDivisibleBy396(31L) = " + IsDivisibleBy396(31L));
+
+            // Задание 97
+            Console.WriteLine("ЗАДАНИЕ 97: IsDivisibleBy397(33) = " + IsDivisibleBy397(33));
+            Console.WriteLine("ЗАДАНИЕ 97: IsDivisibleBy397(34) = " + IsDivisibleBy397(34));
+
+            // Задание 98
+            Console.WriteLine("ЗАДАНИЕ 98: ValidateFileSize98(1024) = " + ValidateFileSize98(1024));
+            Console.WriteLine("ЗАДАНИЕ 98: ValidateFileSize98(-1) = " + ValidateFileSize98(-1));
+
+            // Задание 99
+            Console.WriteLine("ЗАДАНИЕ 99: FormatNumber99(10) = " + FormatNumber99(10));
+            Console.WriteLine("ЗАДАНИЕ 99: FormatNumber99(-10) = " + FormatNumber99(-10));
+
+            // Задание 100
+            Console.WriteLine("ЗАДАНИЕ 100: ValidateUsername100('user123') = " + ValidateUsername100("user123"));
+            Console.WriteLine("ЗАДАНИЕ 100: ValidateUsername100('ab') = " + ValidateUsername100("ab"));
+        }
+    }
+}
