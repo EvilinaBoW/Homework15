@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
-class Program
+    class Program
     {
         // ЗАДАНИЕ 1: Метод, принимающий два целых числа и возвращающий их сумму
         static int Sum1(int a, int b)
@@ -221,15 +221,12 @@ class Program
         // ЗАДАНИЕ 27: Объяснение различия между процедурой и функцией на примере
         static void DemonstrateDifference27()
         {
-            Console.WriteLine("=== ЗАДАНИЕ 27: Различие между процедурой и функцией ===");
 
-            // Процедура - не возвращает значение
             void ProcedureExample(int x)
             {
                 Console.WriteLine($"Процедура: получено значение {x}");
             }
 
-            // Функция - возвращает значение
             int FunctionExample(int x)
             {
                 return x * 2;
@@ -260,15 +257,12 @@ class Program
         // ЗАДАНИЕ 31: Объяснение различия между процедурой и функцией на примере
         static void DemonstrateDifference31()
         {
-            Console.WriteLine("=== ЗАДАНИЕ 31: Различие между процедурой и функцией ===");
 
-            // Процедура
             void GreetProcedure(string name)
             {
                 Console.WriteLine($"Привет, {name}!");
             }
 
-            // Функция
             string GreetFunction(string name)
             {
                 return $"Привет, {name}!";
@@ -282,15 +276,11 @@ class Program
         // ЗАДАНИЕ 32: Объяснение различия между процедурой и функцией на примере
         static void DemonstrateDifference32()
         {
-            Console.WriteLine("=== ЗАДАНИЕ 32: Различие между процедурой и функцией ===");
-
-            // Процедура (void) - выполняет действие
             void PrintSumProcedure(int a, int b)
             {
                 Console.WriteLine($"Сумма: {a + b}");
             }
 
-            // Функция (возвращает значение) - вычисляет результат
             int CalculateSumFunction(int a, int b)
             {
                 return a + b;
@@ -316,18 +306,14 @@ class Program
         // ЗАДАНИЕ 35: Объяснение различия между процедурой и функцией на примере
         static void DemonstrateDifference35()
         {
-            Console.WriteLine("=== ЗАДАНИЕ 35: Различие между процедурой и функцией ===");
-
             int counter = 0;
 
-            // Процедура изменяет внешнее состояние
             void IncrementProcedure()
             {
                 counter++;
                 Console.WriteLine($"Счетчик: {counter}");
             }
 
-            // Функция возвращает новое значение
             int IncrementFunction(int value)
             {
                 return value + 1;
@@ -365,9 +351,7 @@ class Program
         // ЗАДАНИЕ 40: Объяснение различия между процедурой и функцией на примере
         static void DemonstrateDifference40()
         {
-            Console.WriteLine("=== ЗАДАНИЕ 40: Различие между процедурой и функцией ===");
 
-            // Процедура с ref параметром
             void SwapProcedure(ref int a, ref int b)
             {
                 int temp = a;
@@ -393,11 +377,8 @@ class Program
         // ЗАДАНИЕ 41: Объяснение различия между процедурой и функцией на примере
         static void DemonstrateDifference41()
         {
-            Console.WriteLine("=== ЗАДАНИЕ 41: Различие между процедурой и функцией ===");
-
             string[] names = { "Анна", "Петр", "Мария" };
 
-            // Процедура выводит список
             void PrintNamesProcedure(string[] array)
             {
                 foreach (string name in array)
@@ -406,7 +387,6 @@ class Program
                 }
             }
 
-            // Функция возвращает отформатированную строку
             string FormatNamesFunction(string[] array)
             {
                 return string.Join(", ", array);
@@ -441,9 +421,7 @@ class Program
         // ЗАДАНИЕ 43: Объяснение различия между процедурой и функцией на примере
         static void DemonstrateDifference43()
         {
-            Console.WriteLine("=== ЗАДАНИЕ 43: Различие между процедурой и функцией ===");
 
-            // Процедура - side effects
             void ProcessNumberProcedure(int number)
             {
                 Console.WriteLine($"Обработка числа: {number}");
@@ -451,7 +429,6 @@ class Program
                 Console.WriteLine($"Куб: {number * number * number}");
             }
 
-            // Функция - чистая функция
             (int square, int cube) CalculatePowersFunction(int number)
             {
                 return (number * number, number * number * number);
@@ -547,7 +524,6 @@ class Program
 
         static void Main(string[] args)
         {
-            Console.WriteLine("=== ВЫПОЛНЕНИЕ ВСЕХ 50 ЗАДАНИЙ ===\n");
 
             // Задание 1
             Console.WriteLine("ЗАДАНИЕ 1: Sum1(5, 3) = " + Sum1(5, 3));
@@ -729,8 +705,6 @@ class Program
             // Задание 50
             int[] array50 = { 9, 8, 7, 6, 5 };
             Console.WriteLine("ЗАДАНИЕ 50: FindMin50([9,8,7,6,5]) = " + FindMin50(array50));
-
-            Console.WriteLine("\n=== ВСЕ 50 ЗАДАНИЙ ВЫПОЛНЕНЫ ===");
         }
     }
 }
