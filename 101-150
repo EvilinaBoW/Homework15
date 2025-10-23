@@ -1,0 +1,766 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    class Program
+    {
+        // ЗАДАНИЕ 101: Функция, возвращающая код ошибки, если входные данные некорректны
+        static int ValidatePercentage101(int percentage)
+        {
+            if (percentage < 0) return -1;
+            if (percentage > 100) return -2;
+            return 0;
+        }
+
+        // ЗАДАНИЕ 102: Функция, возвращающая null, если строка пустая
+        static string ProcessInput102(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return null;
+            return input.Trim().ToUpper();
+        }
+
+        // ЗАДАНИЕ 103: Функция, возвращающая null, если строка пустая
+        static string[] SplitWords103(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return null;
+            return text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        // ЗАДАНИЕ 104: Функция, использующая return для выхода из метода до конца выполнения
+        static string CheckNumber104(int number)
+        {
+            if (number < 0)
+                return "Число отрицательное";
+            if (number == 0)
+                return "Ноль";
+            if (number > 1000)
+                return "Число слишком большое";
+
+            return $"Число в допустимом диапазоне: {number}";
+        }
+
+        // ЗАДАНИЕ 105: Функция, возвращающая null, если строка пустая
+        static int? ParseToInt105(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+                return null;
+
+            if (int.TryParse(str, out int result))
+                return result;
+
+            return null;
+        }
+
+        // ЗАДАНИЕ 106: Функция с Guard Clause для проверки деления на ноль
+        static double SafeDivide106(double numerator, double denominator)
+        {
+            if (denominator == 0)
+                throw new DivideByZeroException("Деление на ноль недопустимо");
+
+            return numerator / denominator;
+        }
+
+        // ЗАДАНИЕ 107: Guard Clause в конструкторе класса для обязательного параметра
+        class User107
+        {
+            public string Name { get; }
+            public int Age { get; }
+
+            public User107(string name, int age)
+            {
+                if (string.IsNullOrWhiteSpace(name))
+                    throw new ArgumentException("Имя не может быть пустым", nameof(name));
+
+                Name = name;
+                Age = age;
+            }
+        }
+
+        // ЗАДАНИЕ 108: Функция с Guard Clause для проверки деления на ноль
+        static decimal SafeDivide108(decimal a, decimal b)
+        {
+            if (b == 0)
+                return 0;
+
+            return a / b;
+        }
+
+        // ЗАДАНИЕ 109: Guard Clause для проверки диапазона допустимых значений
+        static double CalculateSquareRoot109(double number)
+        {
+            if (number < 0)
+                throw new ArgumentOutOfRangeException(nameof(number), "Число не может быть отрицательным");
+
+            return Math.Sqrt(number);
+        }
+
+        // ЗАДАНИЕ 110: Guard Clause, которая сразу возвращает void, если массив пустой
+        static void PrintArray110(int[] array)
+        {
+            if (array == null || array.Length == 0)
+                return;
+
+            foreach (var item in array)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+        }
+
+        // ЗАДАНИЕ 111: Guard Clause, которая сразу возвращает void, если массив пустой
+        static void ProcessData111(string[] data)
+        {
+            if (data == null || data.Length == 0)
+                return;
+
+            foreach (var item in data)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        // ЗАДАНИЕ 112: Guard Clause в конструкторе класса для обязательного параметра
+        class Product112
+        {
+            public string Name { get; }
+            public decimal Price { get; }
+
+            public Product112(string name, decimal price)
+            {
+                // Guard Clause
+                if (string.IsNullOrWhiteSpace(name))
+                    throw new ArgumentException("Название продукта обязательно", nameof(name));
+                if (price < 0)
+                    throw new ArgumentException("Цена не может быть отрицательной", nameof(price));
+
+                Name = name;
+                Price = price;
+            }
+        }
+
+        // ЗАДАНИЕ 113: Функция с Guard Clause для проверки деления на ноль
+        static double? SafeDivide113(double a, double b)
+        {
+            if (b == 0)
+                return null;
+
+            return a / b;
+        }
+
+        // ЗАДАНИЕ 114: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static void ValidateObject114(object obj)
+        {
+            if (obj == null)
+                throw new ArgumentNullException(nameof(obj), "Объект не может быть null");
+
+            Console.WriteLine("Объект валиден: " + obj.ToString());
+        }
+
+        // ЗАДАНИЕ 115: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static string ProcessList115(List<string> items)
+        {
+            if (items == null)
+                throw new ArgumentNullException(nameof(items), "Список не может быть null");
+
+            return string.Join(", ", items);
+        }
+
+        // ЗАДАНИЕ 116: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static int CalculateSum116(int[] numbers)
+        {
+            if (numbers == null)
+                throw new ArgumentNullException(nameof(numbers), "Массив не может быть null");
+
+            int sum = 0;
+            foreach (var num in numbers)
+            {
+                sum += num;
+            }
+            return sum;
+        }
+
+        // ЗАДАНИЕ 117: Guard Clause, которая сразу возвращает void, если массив пустой
+        static void DisplayMatrix117(int[,] matrix)
+        {
+            if (matrix == null || matrix.Length == 0)
+                return;
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        // ЗАДАНИЕ 118: Guard Clause, которая сразу возвращает void, если массив пустой
+        static void AnalyzeData118(double[] data)
+        {
+            if (data == null || data.Length == 0)
+                return;
+
+            double sum = 0;
+            foreach (var value in data)
+            {
+                sum += value;
+            }
+            Console.WriteLine($"Среднее значение: {sum / data.Length}");
+        }
+
+        // ЗАДАНИЕ 119: Функция с Guard Clause для проверки деления на ноль
+        static double CalculateRatio119(double part, double whole)
+        {
+            if (whole == 0)
+                return 0;
+
+            return part / whole;
+        }
+
+        // ЗАДАНИЕ 120: Guard Clause в конструкторе класса для обязательного параметра
+        class BankAccount120
+        {
+            public string AccountNumber { get; }
+            public decimal Balance { get; private set; }
+
+            public BankAccount120(string accountNumber, decimal initialBalance)
+            {
+                if (string.IsNullOrWhiteSpace(accountNumber))
+                    throw new ArgumentException("Номер счета обязателен", nameof(accountNumber));
+                if (initialBalance < 0)
+                    throw new ArgumentException("Начальный баланс не может быть отрицательным", nameof(initialBalance));
+
+                AccountNumber = accountNumber;
+                Balance = initialBalance;
+            }
+        }
+
+        // ЗАДАНИЕ 121: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static void SaveToDatabase121(object entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity), "Сущность для сохранения не может быть null");
+
+            Console.WriteLine("Сохранение сущности: " + entity.GetType().Name);
+        }
+
+        // ЗАДАНИЕ 122: Функция с Guard Clause для проверки деления на ноль
+        static double CalculateAverage122(double[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return 0;
+
+            double sum = 0;
+            foreach (var num in numbers)
+            {
+                sum += num;
+            }
+            return sum / numbers.Length;
+        }
+
+        // ЗАДАНИЕ 123: Функция с Guard Clause для проверки деления на ноль
+        static decimal CalculatePercentage123(decimal value, decimal total)
+        {
+            if (total == 0)
+                return 0;
+
+            return (value / total) * 100;
+        }
+
+        // ЗАДАНИЕ 124: Guard Clause в конструкторе класса для обязательного параметра
+        class Order124
+        {
+            public int OrderId { get; }
+            public string CustomerName { get; }
+
+            public Order124(int orderId, string customerName)
+            {
+                if (orderId <= 0)
+                    throw new ArgumentException("ID заказа должен быть положительным", nameof(orderId));
+                if (string.IsNullOrWhiteSpace(customerName))
+                    throw new ArgumentException("Имя клиента обязательно", nameof(customerName));
+
+                OrderId = orderId;
+                CustomerName = customerName;
+            }
+        }
+
+        // ЗАДАНИЕ 125: Функция с Guard Clause для проверки деления на ноль
+        static double CalculateVelocity125(double distance, double time)
+        {
+            if (time <= 0)
+                throw new ArgumentException("Время должно быть положительным", nameof(time));
+
+            return distance / time;
+        }
+
+        // ЗАДАНИЕ 126: Guard Clause в конструкторе класса для обязательного параметра
+        class Email126
+        {
+            public string Address { get; }
+
+            public Email126(string address)
+            {
+                if (string.IsNullOrWhiteSpace(address))
+                    throw new ArgumentException("Адрес email обязателен", nameof(address));
+                if (!address.Contains("@"))
+                    throw new ArgumentException("Некорректный формат email", nameof(address));
+
+                Address = address;
+            }
+        }
+
+        // ЗАДАНИЕ 127: Guard Clause для проверки диапазона допустимых значений
+        static int CalculateFactorial127(int n)
+        {
+            if (n < 0)
+                throw new ArgumentOutOfRangeException(nameof(n), "Факториал определен только для неотрицательных чисел");
+            if (n > 20)
+                throw new ArgumentOutOfRangeException(nameof(n), "Слишком большое значение для вычисления факториала");
+
+            int result = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                result *= i;
+            }
+            return result;
+        }
+
+        // ЗАДАНИЕ 128: Guard Clause в конструкторе класса для обязательного параметра
+        class Student128
+        {
+            public string Name { get; }
+            public int Grade { get; }
+
+            public Student128(string name, int grade)
+            {
+                if (string.IsNullOrWhiteSpace(name))
+                    throw new ArgumentException("Имя студента обязательно", nameof(name));
+                if (grade < 1 || grade > 12)
+                    throw new ArgumentException("Класс должен быть в диапазоне от 1 до 12", nameof(grade));
+
+                Name = name;
+                Grade = grade;
+            }
+        }
+
+        // ЗАДАНИЕ 129: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static string FormatAddress129(string street, string city, string zipCode)
+        {
+            if (string.IsNullOrWhiteSpace(street))
+                throw new ArgumentNullException(nameof(street), "Улица не может быть пустой");
+            if (string.IsNullOrWhiteSpace(city))
+                throw new ArgumentNullException(nameof(city), "Город не может быть пустым");
+
+            return $"{street}, {city}, {zipCode}";
+        }
+
+        // ЗАДАНИЕ 130: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static void ValidateCredentials130(string username, string password)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentNullException(nameof(username), "Имя пользователя обязательно");
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentNullException(nameof(password), "Пароль обязателен");
+
+            Console.WriteLine("Учетные данные приняты");
+        }
+
+        // ЗАДАНИЕ 131: Guard Clause в конструкторе класса для обязательного параметра
+        class Car131
+        {
+            public string Model { get; }
+            public int Year { get; }
+
+            public Car131(string model, int year)
+            {
+                if (string.IsNullOrWhiteSpace(model))
+                    throw new ArgumentException("Модель автомобиля обязательна", nameof(model));
+                if (year < 1886 || year > DateTime.Now.Year + 1)
+                    throw new ArgumentException("Некорректный год выпуска", nameof(year));
+
+                Model = model;
+                Year = year;
+            }
+        }
+
+        // ЗАДАНИЕ 132: Guard Clause для проверки диапазона допустимых значений
+        static double ConvertTemperature132(double celsius)
+        {
+            if (celsius < -273.15)
+                throw new ArgumentOutOfRangeException(nameof(celsius), "Температура не может быть ниже абсолютного нуля");
+
+            return celsius * 9 / 5 + 32;
+        }
+
+        // ЗАДАНИЕ 133: Guard Clause для проверки диапазона допустимых значений
+        static int CalculateDiscount133(int purchaseAmount, int discountPercent)
+        {
+            if (purchaseAmount < 0)
+                throw new ArgumentOutOfRangeException(nameof(purchaseAmount), "Сумма покупки не может быть отрицательной");
+            if (discountPercent < 0 || discountPercent > 100)
+                throw new ArgumentOutOfRangeException(nameof(discountPercent), "Процент скидки должен быть от 0 до 100");
+
+            return purchaseAmount * discountPercent / 100;
+        }
+
+        // ЗАДАНИЕ 134: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static void SendNotification134(string message, string recipient)
+        {
+            if (string.IsNullOrWhiteSpace(message))
+                throw new ArgumentNullException(nameof(message), "Сообщение не может быть пустым");
+            if (string.IsNullOrWhiteSpace(recipient))
+                throw new ArgumentNullException(nameof(recipient), "Получатель не может быть пустым");
+
+            Console.WriteLine($"Отправка сообщения '{message}' получателю {recipient}");
+        }
+
+        // ЗАДАНИЕ 135: Guard Clause для проверки диапазона допустимых значений
+        static double CalculateBMI135(double weight, double height)
+        {
+            if (weight <= 0)
+                throw new ArgumentOutOfRangeException(nameof(weight), "Вес должен быть положительным");
+            if (height <= 0)
+                throw new ArgumentOutOfRangeException(nameof(height), "Рост должен быть положительным");
+
+            return weight / (height * height);
+        }
+
+        // ЗАДАНИЕ 136: Функция с Guard Clause для проверки деления на ноль
+        static double CalculateDensity136(double mass, double volume)
+        {
+            if (volume == 0)
+                throw new ArgumentException("Объем не может быть нулевым", nameof(volume));
+
+            return mass / volume;
+        }
+
+        // ЗАДАНИЕ 137: Guard Clause, которая сразу возвращает void, если массив пустой
+        static void FindMax137(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return;
+
+            int max = numbers[0];
+            foreach (var num in numbers)
+            {
+                if (num > max) max = num;
+            }
+            Console.WriteLine($"Максимальное значение: {max}");
+        }
+
+        // ЗАДАНИЕ 138: Функция с Guard Clause для проверки деления на ноль
+        static decimal CalculateInterest138(decimal principal, decimal rate, decimal time)
+        {
+            if (principal <= 0)
+                throw new ArgumentException("Основная сумма должна быть положительной", nameof(principal));
+            if (time <= 0)
+                throw new ArgumentException("Время должно быть положительным", nameof(time));
+
+            return principal * rate * time / 100;
+        }
+
+        // ЗАДАНИЕ 139: Метод с Guard Clause, выбрасывающей исключение при аргументе null
+        static void ProcessOrder139(object order)
+        {
+            if (order == null)
+                throw new ArgumentNullException(nameof(order), "Заказ не может быть null");
+
+            Console.WriteLine("Обработка заказа...");
+        }
+
+        // ЗАДАНИЕ 140: Guard Clause для проверки диапазона допустимых значений
+        static int CalculateAge140(int birthYear)
+        {
+            int currentYear = DateTime.Now.Year;
+            if (birthYear < 1900 || birthYear > currentYear)
+                throw new ArgumentOutOfRangeException(nameof(birthYear), $"Год рождения должен быть между 1900 и {currentYear}");
+
+            return currentYear - birthYear;
+        }
+
+        // [6. Сторожевые операторы для защиты номинального варианта] Задания 141-150
+
+        // ЗАДАНИЕ 141: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+        static (bool success, string error) ProcessPayment141(decimal amount)
+        {
+            if (amount <= 0)
+                return (false, "Сумма платежа должна быть положительной");
+
+            // Основная логика обработки платежа
+            Console.WriteLine($"Обработка платежа на сумму: {amount}");
+            return (true, null);
+        }
+
+        // ЗАДАНИЕ 142: В функции проверки возраста использовать Guard Clause — если меньше минимума, return
+        static string CheckAge142(int age)
+        {
+            if (age < 0)
+                return "Возраст не может быть отрицательным";
+            if (age < 18)
+                return "Несовершеннолетний";
+            if (age < 65)
+                return "Взрослый";
+
+            return "Пенсионер";
+        }
+
+        // ЗАДАНИЕ 143: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+        static decimal CalculateTax143(decimal income)
+        {
+            if (income < 0)
+                throw new ArgumentException("Доход не может быть отрицательным", nameof(income));
+
+            if (income <= 10000)
+                return 0;
+            if (income <= 50000)
+                return income * 0.13m;
+
+            return income * 0.20m;
+        }
+
+        // ЗАДАНИЕ 144: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+        static void ValidatePassword144(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("Пароль не может быть пустым", nameof(password));
+            if (password.Length < 8)
+                throw new ArgumentException("Пароль должен содержать минимум 8 символов", nameof(password));
+
+            Console.WriteLine("Пароль соответствует требованиям");
+        }
+
+        // ЗАДАНИЕ 145: Guard Clause в функции регистрации, проверяющая уникальность email
+        static (bool success, string message) RegisterUser145(string email, List<string> existingEmails)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return (false, "Email не может быть пустым");
+            if (!email.Contains("@"))
+                return (false, "Некорректный формат email");
+            if (existingEmails.Contains(email))
+                return (false, "Email уже зарегистрирован");
+
+            // Логика регистрации
+            existingEmails.Add(email);
+            return (true, "Пользователь успешно зарегистрирован");
+        }
+
+        // ЗАДАНИЕ 146: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+        static (bool isValid, string error) ValidateTransaction146(decimal amount, string currency)
+        {
+            if (amount <= 0)
+                return (false, "Сумма транзакции должна быть положительной");
+            if (string.IsNullOrWhiteSpace(currency))
+                return (false, "Валюта не может быть пустой");
+            if (amount > 1000000)
+                return (false, "Сумма транзакции превышает лимит");
+
+            return (true, null);
+        }
+
+        // ЗАДАНИЕ 147: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+        static decimal ApplyDiscount147(decimal price, decimal discount)
+        {
+            if (price < 0)
+                throw new ArgumentException("Цена не может быть отрицательной", nameof(price));
+            if (discount < 0 || discount > 100)
+                throw new ArgumentException("Скидка должна быть в диапазоне 0-100%", nameof(discount));
+
+            return price * (100 - discount) / 100;
+        }
+
+        // ЗАДАНИЕ 148: В функции проверки возраста использовать Guard Clause — если меньше минимума, return
+        static bool CanVote148(int age, string citizenship)
+        {
+            if (age < 18)
+                return false;
+            if (string.IsNullOrWhiteSpace(citizenship))
+                return false;
+            if (citizenship != "RU")
+                return false;
+
+            return true;
+        }
+
+        // ЗАДАНИЕ 149: В функции проверки возраста использовать Guard Clause — если меньше минимума, return
+        static string GetAgeCategory149(int age)
+        {
+            if (age < 0) return "Некорректный возраст";
+            if (age < 3) return "Младенец";
+            if (age < 12) return "Ребенок";
+            if (age < 18) return "Подросток";
+            if (age < 65) return "Взрослый";
+
+            return "Пожилой";
+        }
+
+        // ЗАДАНИЕ 150: Guard Clause в функции регистрации, проверяющая уникальность email
+        static void RegisterAccount150(string username, string email, HashSet<string> existingUsernames, HashSet<string> existingEmails)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentException("Имя пользователя обязательно", nameof(username));
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("Email обязателен", nameof(email));
+            if (existingUsernames.Contains(username))
+                throw new InvalidOperationException("Имя пользователя уже занято");
+            if (existingEmails.Contains(email))
+                throw new InvalidOperationException("Email уже зарегистрирован");
+
+            // Логика регистрации
+            existingUsernames.Add(username);
+            existingEmails.Add(email);
+            Console.WriteLine("Аккаунт успешно зарегистрирован");
+        }
+
+        static void Main(string[] args)
+        {
+            // Задание 101
+            Console.WriteLine("ЗАДАНИЕ 101: ValidatePercentage101(75) = " + ValidatePercentage101(75));
+            Console.WriteLine("ЗАДАНИЕ 101: ValidatePercentage101(150) = " + ValidatePercentage101(150));
+
+            // Задание 102
+            Console.WriteLine("ЗАДАНИЕ 102: ProcessInput102(' hello ') = " + ProcessInput102(" hello "));
+            Console.WriteLine("ЗАДАНИЕ 102: ProcessInput102(' ') = " + (ProcessInput102(" ") ?? "null"));
+
+            // Задание 103
+            var words103 = SplitWords103("C# is awesome");
+            Console.WriteLine("ЗАДАНИЕ 103: SplitWords103('C# is awesome') = " + (words103 != null ? string.Join(", ", words103) : "null"));
+
+            // Задание 104
+            Console.WriteLine("ЗАДАНИЕ 104: CheckNumber104(500) = " + CheckNumber104(500));
+            Console.WriteLine("ЗАДАНИЕ 104: CheckNumber104(-5) = " + CheckNumber104(-5));
+
+            // Задание 105
+            Console.WriteLine("ЗАДАНИЕ 105: ParseToInt105('123') = " + (ParseToInt105("123")?.ToString() ?? "null"));
+            Console.WriteLine("ЗАДАНИЕ 105: ParseToInt105('') = " + (ParseToInt105("")?.ToString() ?? "null"));
+
+            // Задание 106
+            try
+            {
+                Console.WriteLine("ЗАДАНИЕ 106: SafeDivide106(10, 2) = " + SafeDivide106(10, 2));
+                // Console.WriteLine("ЗАДАНИЕ 106: SafeDivide106(10, 0) = " + SafeDivide106(10, 0)); 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ЗАДАНИЕ 106: Ошибка: " + ex.Message);
+            }
+
+            // Задание 107
+            try
+            {
+                var user107 = new User107("John", 25);
+                Console.WriteLine("ЗАДАНИЕ 107: User создан: " + user107.Name);
+                // var invalidUser = new User107("", 25); 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ЗАДАНИЕ 107: Ошибка: " + ex.Message);
+            }
+
+            // Задание 108
+            Console.WriteLine("ЗАДАНИЕ 108: SafeDivide108(10, 3) = " + SafeDivide108(10, 3));
+            Console.WriteLine("ЗАДАНИЕ 108: SafeDivide108(10, 0) = " + SafeDivide108(10, 0));
+
+            // Задание 109
+            try
+            {
+                Console.WriteLine("ЗАДАНИЕ 109: CalculateSquareRoot109(16) = " + CalculateSquareRoot109(16));
+                // CalculateSquareRoot109(-4); 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ЗАДАНИЕ 109: Ошибка: " + ex.Message);
+            }
+
+            // Задание 110
+            Console.Write("ЗАДАНИЕ 110: PrintArray110([1,2,3]) = ");
+            PrintArray110(new int[] { 1, 2, 3 });
+            Console.Write("ЗАДАНИЕ 110: PrintArray110([]) = ");
+            PrintArray110(new int[0]);
+
+            // Задание 113
+            Console.WriteLine("ЗАДАНИЕ 113: SafeDivide113(10, 2) = " + SafeDivide113(10, 2));
+            Console.WriteLine("ЗАДАНИЕ 113: SafeDivide113(10, 0) = " + (SafeDivide113(10, 0)?.ToString() ?? "null"));
+
+            // Задание 114
+            try
+            {
+                ValidateObject114("test");
+                // ValidateObject114(null);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ЗАДАНИЕ 114: Ошибка: " + ex.Message);
+            }
+
+            // Задание 122
+            Console.WriteLine("ЗАДАНИЕ 122: CalculateAverage122([1,2,3,4,5]) = " + CalculateAverage122(new double[] { 1, 2, 3, 4, 5 }));
+
+            // Задание 127
+            try
+            {
+                Console.WriteLine("ЗАДАНИЕ 127: CalculateFactorial127(5) = " + CalculateFactorial127(5));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ЗАДАНИЕ 127: Ошибка: " + ex.Message);
+            }
+
+            // Задание 141
+            var result141 = ProcessPayment141(1000);
+            Console.WriteLine("ЗАДАНИЕ 141: ProcessPayment141(1000) = " + result141.success + ", " + (result141.error ?? "нет ошибки"));
+
+            // Задание 142
+            Console.WriteLine("ЗАДАНИЕ 142: CheckAge142(25) = " + CheckAge142(25));
+            Console.WriteLine("ЗАДАНИЕ 142: CheckAge142(16) = " + CheckAge142(16));
+
+            // Задание 143
+            Console.WriteLine("ЗАДАНИЕ 143: CalculateTax143(30000) = " + CalculateTax143(30000));
+
+            // Задание 144
+            try
+            {
+                ValidatePassword144("strongpass");
+                Console.WriteLine("ЗАДАНИЕ 144: Пароль валиден");
+                // ValidatePassword144("weak"); // Выбросит исключение
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ЗАДАНИЕ 144: Ошибка: " + ex.Message);
+            }
+
+            // Задание 145
+            var existingEmails = new List<string> { "test@mail.com", "user@example.com" };
+            var result145 = RegisterUser145("newuser@mail.com", existingEmails);
+            Console.WriteLine("ЗАДАНИЕ 145: RegisterUser145('newuser@mail.com') = " + result145.success + ", " + result145.message);
+
+            // Задание 148
+            Console.WriteLine("ЗАДАНИЕ 148: CanVote148(20, 'RU') = " + CanVote148(20, "RU"));
+            Console.WriteLine("ЗАДАНИЕ 148: CanVote148(16, 'RU') = " + CanVote148(16, "RU"));
+
+            // Задание 149
+            Console.WriteLine("ЗАДАНИЕ 149: GetAgeCategory149(35) = " + GetAgeCategory149(35));
+            Console.WriteLine("ЗАДАНИЕ 149: GetAgeCategory149(70) = " + GetAgeCategory149(70));
+
+            // Задание 150
+            try
+            {
+                var usernames = new HashSet<string> { "user1", "user2" };
+                var emails = new HashSet<string> { "email1@test.com", "email2@test.com" };
+                RegisterAccount150("newuser", "newemail@test.com", usernames, emails);
+                Console.WriteLine("ЗАДАНИЕ 150: Регистрация успешна");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ЗАДАНИЕ 150: Ошибка: " + ex.Message);
+            }
+        }
+    }
+}
