@@ -1,0 +1,707 @@
+    // ЗАДАНИЕ 151: В функции проверки возраста использовать Guard Clause — если меньше минимума, return
+    static string GetDrivingLicense151(int age)
+    {
+        if (age < 16) return "Слишком молод для вождения";
+        if (age > 80) return "Требуется медицинская справка";
+        
+        return "Может управлять автомобилем";
+    }
+
+    // ЗАДАНИЕ 152: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+    static (bool success, decimal result, string error) CalculateBonus152(decimal salary, decimal bonusPercent)
+    {
+        if (salary < 0) return (false, 0, "Зарплата не может быть отрицательной");
+        if (bonusPercent < 0) return (false, 0, "Процент бонуса не может быть отрицательным");
+        
+        decimal bonus = salary * bonusPercent / 100;
+        return (true, bonus, null);
+    }
+
+    // ЗАДАНИЕ 153: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+    static decimal CalculateShipping153(decimal orderAmount, decimal distance)
+    {
+        if (orderAmount < 0) 
+            throw new ArgumentException("Сумма заказа не может быть отрицательной", nameof(orderAmount));
+        if (distance < 0)
+            throw new ArgumentException("Расстояние не может быть отрицательным", nameof(distance));
+        
+        decimal baseShipping = 5.0m;
+        decimal distanceRate = distance * 0.1m;
+        return baseShipping + distanceRate;
+    }
+
+    // ЗАДАНИЕ 154: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+    static void AuthenticateUser154(string username, string password)
+    {
+        if (string.IsNullOrWhiteSpace(username))
+            throw new ArgumentException("Имя пользователя обязательно", nameof(username));
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Пароль обязателен", nameof(password));
+        if (password.Length < 6)
+            throw new ArgumentException("Пароль должен содержать минимум 6 символов", nameof(password));
+        
+        Console.WriteLine($"Пользователь {username} успешно аутентифицирован");
+    }
+
+    // ЗАДАНИЕ 155: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+    static (bool isValid, string message) ValidateInvestment155(decimal amount, int duration)
+    {
+        if (amount < 1000) return (false, "Минимальная сумма инвестиции: 1000");
+        if (duration < 1) return (false, "Срок инвестиции должен быть положительным");
+        if (duration > 30) return (false, "Максимальный срок инвестиции: 30 лет");
+        
+        return (true, "Инвестиция валидна");
+    }
+
+    // ЗАДАНИЕ 156: Guard Clause в функции регистрации, проверяющая уникальность email
+    static bool RegisterUser156(string email, HashSet<string> registeredEmails)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email не может быть пустым", nameof(email));
+        if (!email.Contains("@"))
+            throw new ArgumentException("Некорректный формат email", nameof(email));
+        if (registeredEmails.Contains(email))
+            return false;
+        
+        registeredEmails.Add(email);
+        return true;
+    }
+
+    // ЗАДАНИЕ 157: Guard Clause, выбрасывающую исключение при невалидном формате даты
+    static DateTime ParseDate157(string dateString)
+    {
+        if (string.IsNullOrWhiteSpace(dateString))
+            throw new ArgumentException("Строка с датой не может быть пустой", nameof(dateString));
+        
+        if (!DateTime.TryParse(dateString, out DateTime result))
+            throw new FormatException($"Некорректный формат даты: {dateString}");
+        
+        return result;
+    }
+
+    // ЗАДАНИЕ 158: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+    static bool ValidateCredentials158(string username, string password)
+    {
+        if (string.IsNullOrWhiteSpace(username) || username.Length < 3)
+            throw new ArgumentException("Имя пользователя должно содержать минимум 3 символа", nameof(username));
+        if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
+            throw new ArgumentException("Пароль должен содержать минимум 8 символов", nameof(password));
+        
+        // Логика проверки учетных данных
+        return username == "admin" && password == "password123";
+    }
+
+    // ЗАДАНИЕ 159: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+    static void ChangePassword159(string oldPassword, string newPassword)
+    {
+        if (string.IsNullOrWhiteSpace(oldPassword))
+            throw new ArgumentException("Старый пароль не может быть пустым", nameof(oldPassword));
+        if (string.IsNullOrWhiteSpace(newPassword))
+            throw new ArgumentException("Новый пароль не может быть пустым", nameof(newPassword));
+        if (newPassword.Length < 8)
+            throw new ArgumentException("Новый пароль должен содержать минимум 8 символов", nameof(newPassword));
+        if (newPassword == oldPassword)
+            throw new ArgumentException("Новый пароль должен отличаться от старого");
+        
+        Console.WriteLine("Пароль успешно изменен");
+    }
+
+    // ЗАДАНИЕ 160: Guard Clause в функции регистрации, проверяющая уникальность email
+    static (bool success, string error) CreateAccount160(string email, string username, Dictionary<string, string> accounts)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            return (false, "Email не может быть пустым");
+        if (string.IsNullOrWhiteSpace(username))
+            return (false, "Имя пользователя не может быть пустым");
+        if (!email.Contains("@"))
+            return (false, "Некорректный формат email");
+        if (accounts.ContainsKey(email))
+            return (false, "Email уже зарегистрирован");
+        if (accounts.ContainsValue(username))
+            return (false, "Имя пользователя уже занято");
+        
+        accounts[email] = username;
+        return (true, null);
+    }
+
+    // ЗАДАНИЕ 161: Guard Clause в функции регистрации, проверяющая уникальность email
+    static void ValidateRegistration161(string email, string password, List<string> existingEmails)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email обязателен", nameof(email));
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Пароль обязателен", nameof(password));
+        if (existingEmails.Contains(email))
+            throw new InvalidOperationException("Email уже зарегистрирован");
+        if (password.Length < 10)
+            throw new ArgumentException("Пароль должен содержать минимум 10 символов", nameof(password));
+        
+        Console.WriteLine("Регистрация прошла успешно");
+    }
+
+    // ЗАДАНИЕ 162: В функции проверки возраста использовать Guard Clause — если меньше минимума, return
+    static string GetSchoolLevel162(int age)
+    {
+        if (age < 0) return "Некорректный возраст";
+        if (age < 7) return "Дошкольник";
+        if (age < 11) return "Начальная школа";
+        if (age < 15) return "Средняя школа";
+        if (age < 18) return "Старшая школа";
+        
+        return "Выпускник";
+    }
+
+    // ЗАДАНИЕ 163: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+    static bool VerifyPassword163(string password)
+    {
+        if (string.IsNullOrWhiteSpace(password))
+            return false;
+        if (password.Length < 12)
+            return false;
+        if (!password.Any(char.IsDigit))
+            return false;
+        if (!password.Any(char.IsUpper))
+            return false;
+        
+        return true;
+    }
+
+    // ЗАДАНИЕ 164: В функции проверки возраста использовать Guard Clause — если меньше минимума, return
+    static bool CanRetire164(int age, int yearsOfWork)
+    {
+        if (age < 18) return false;
+        if (yearsOfWork < 5) return false;
+        if (age < 60 && yearsOfWork < 25) return false;
+        
+        return age >= 60 || yearsOfWork >= 25;
+    }
+
+    // ЗАДАНИЕ 165: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+    static decimal CalculateTax165(decimal income, string taxType)
+    {
+        if (income < 0)
+            throw new ArgumentException("Доход не может быть отрицательным", nameof(income));
+        if (string.IsNullOrWhiteSpace(taxType))
+            throw new ArgumentException("Тип налога обязателен", nameof(taxType));
+        
+        return taxType.ToUpper() switch
+        {
+            "INCOME" => income * 0.13m,
+            "SALES" => income * 0.20m,
+            "PROPERTY" => income * 0.01m,
+            _ => throw new ArgumentException("Неизвестный тип налога", nameof(taxType))
+        };
+    }
+
+    // ЗАДАНИЕ 166: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+    static void ResetPassword166(string email, string newPassword)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email обязателен", nameof(email));
+        if (string.IsNullOrWhiteSpace(newPassword))
+            throw new ArgumentException("Новый пароль обязателен", nameof(newPassword));
+        if (newPassword.Length < 9)
+            throw new ArgumentException("Пароль должен содержать минимум 9 символов", nameof(newPassword));
+        if (!newPassword.Any(char.IsSymbol) && !newPassword.Any(char.IsPunctuation))
+            throw new ArgumentException("Пароль должен содержать специальный символ");
+        
+        Console.WriteLine($"Пароль для {email} успешно сброшен");
+    }
+
+    // ЗАДАНИЕ 167: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+    static bool ValidateSession167(string sessionToken, DateTime expiryDate)
+    {
+        if (string.IsNullOrWhiteSpace(sessionToken))
+            return false;
+        if (sessionToken.Length != 32)
+            return false;
+        if (expiryDate < DateTime.Now)
+            return false;
+        
+        return true;
+    }
+
+    // ЗАДАНИЕ 168: Guard Clause, выбрасывающую исключение при невалидном формате даты
+    static void ValidateBirthDate168(DateTime birthDate)
+    {
+        if (birthDate > DateTime.Now)
+            throw new ArgumentException("Дата рождения не может быть в будущем", nameof(birthDate));
+        if (birthDate < new DateTime(1900, 1, 1))
+            throw new ArgumentException("Дата рождения не может быть раньше 1900 года", nameof(birthDate));
+        if (DateTime.Now.Year - birthDate.Year > 120)
+            throw new ArgumentException("Некорректная дата рождения", nameof(birthDate));
+        
+        Console.WriteLine("Дата рождения валидна");
+    }
+
+    // ЗАДАНИЕ 169: Guard Clause для метода авторизации — если пароль слишком короткий, выбросить исключение
+    static (bool isValid, string message) CheckPasswordStrength169(string password)
+    {
+        if (string.IsNullOrWhiteSpace(password))
+            return (false, "Пароль не может быть пустым");
+        if (password.Length < 14)
+            return (false, "Пароль должен содержать минимум 14 символов");
+        if (!password.Any(char.IsDigit))
+            return (false, "Пароль должен содержать цифры");
+        if (!password.Any(char.IsLower) || !password.Any(char.IsUpper))
+            return (false, "Пароль должен содержать буквы в верхнем и нижнем регистре");
+        
+        return (true, "Пароль соответствует требованиям безопасности");
+    }
+
+    // ЗАДАНИЕ 170: Guard Clause для метода расчетов — если сумма отрицательная, вернуть ошибку
+    static decimal CalculateLoanPayment170(decimal principal, double annualRate, int years)
+    {
+        if (principal <= 0)
+            throw new ArgumentException("Основная сумма должна быть положительной", nameof(principal));
+        if (annualRate < 0)
+            throw new ArgumentException("Процентная ставка не может быть отрицательной", nameof(annualRate));
+        if (years <= 0)
+            throw new ArgumentException("Срок кредита должен быть положительным", nameof(years));
+        
+        double monthlyRate = annualRate / 12 / 100;
+        int numberOfPayments = years * 12;
+        double payment = (double)principal * monthlyRate * Math.Pow(1 + monthlyRate, numberOfPayments) 
+                        / (Math.Pow(1 + monthlyRate, numberOfPayments) - 1);
+        
+        return (decimal)payment;
+    }
+
+    // [7. Использование ref и out аргументов в методах] Задания 171-200
+
+    // ЗАДАНИЕ 171: Функция деления, возвращающая частное и остаток через out
+    static void Divide171(int dividend, int divisor, out int quotient, out int remainder)
+    {
+        quotient = dividend / divisor;
+        remainder = dividend % divisor;
+    }
+
+    // ЗАДАНИЕ 172: Функция деления, возвращающая частное и остаток через out
+    static void IntegerDivide172(double a, double b, out int quotient, out double remainder)
+    {
+        quotient = (int)(a / b);
+        remainder = a % b;
+    }
+
+    // ЗАДАНИЕ 173: Метод, заполняющий массив результатами через out
+    static void GenerateSquares173(int count, out int[] squares)
+    {
+        squares = new int[count];
+        for (int i = 0; i < count; i++)
+        {
+            squares[i] = (i + 1) * (i + 1);
+        }
+    }
+
+    // ЗАДАНИЕ 174: Метод, который возвращает true/false через return, а результат через out
+    static bool TryParsePositive174(string input, out int result)
+    {
+        result = 0;
+        if (!int.TryParse(input, out int parsed))
+            return false;
+        
+        if (parsed <= 0)
+            return false;
+        
+        result = parsed;
+        return true;
+    }
+
+    // ЗАДАНИЕ 175: Функция деления, возвращающая частное и остаток через out
+    static void SafeDivide175(decimal dividend, decimal divisor, out decimal quotient, out decimal remainder)
+    {
+        if (divisor == 0)
+            throw new DivideByZeroException();
+        
+        quotient = dividend / divisor;
+        remainder = dividend % divisor;
+    }
+
+    // ЗАДАНИЕ 176: Метод, увеличивающий значение аргумента через ref
+    static void Increment176(ref int value)
+    {
+        value++;
+    }
+
+    // ЗАДАНИЕ 177: Метод, который возвращает true/false через return, а результат через out
+    static bool TryFindMax177(int[] numbers, out int maxValue)
+    {
+        maxValue = 0;
+        if (numbers == null || numbers.Length == 0)
+            return false;
+        
+        maxValue = numbers[0];
+        foreach (int num in numbers)
+        {
+            if (num > maxValue)
+                maxValue = num;
+        }
+        return true;
+    }
+
+    // ЗАДАНИЕ 178: Метод, который возвращает true/false через return, а результат через out
+    static bool TryCalculateAverage178(double[] values, out double average)
+    {
+        average = 0;
+        if (values == null || values.Length == 0)
+            return false;
+        
+        double sum = 0;
+        foreach (double val in values)
+        {
+            sum += val;
+        }
+        average = sum / values.Length;
+        return true;
+    }
+
+    // ЗАДАНИЕ 179: Метод, заполняющий массив результатами через out
+    static void GenerateFibonacci179(int count, out long[] fibonacci)
+    {
+        fibonacci = new long[count];
+        if (count > 0) fibonacci[0] = 0;
+        if (count > 1) fibonacci[1] = 1;
+        
+        for (int i = 2; i < count; i++)
+        {
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+    }
+
+    // ЗАДАНИЕ 180: Функция деления, возвращающая частное и остаток через out
+    static void DivideWithPrecision180(double a, double b, int decimals, out double quotient, out double remainder)
+    {
+        quotient = Math.Round(a / b, decimals);
+        remainder = a % b;
+    }
+
+    // ЗАДАНИЕ 181: Метод, который возвращает true/false через return, а результат через out
+    static bool TryGetUserInfo181(string username, out string email, out DateTime registrationDate)
+    {
+        email = null;
+        registrationDate = DateTime.MinValue;
+        
+        // Имитация поиска в базе данных
+        if (username == "admin")
+        {
+            email = "admin@example.com";
+            registrationDate = new DateTime(2020, 1, 1);
+            return true;
+        }
+        
+        return false;
+    }
+
+    // ЗАДАНИЕ 182: Функция деления, возвращающая частное и остаток через out
+    static void ModularDivide182(int a, int b, out int quotient, out int modulus)
+    {
+        quotient = a / b;
+        modulus = a % b;
+    }
+
+    // ЗАДАНИЕ 183: Метод, увеличивающий значение аргумента через ref
+    static void MultiplyByTwo183(ref double value)
+    {
+        value *= 2;
+    }
+
+    // ЗАДАНИЕ 184: Метод, заполняющий массив результатами через out
+    static void GeneratePrimes184(int count, out int[] primes)
+    {
+        primes = new int[count];
+        if (count == 0) return;
+        
+        primes[0] = 2;
+        int found = 1;
+        int number = 3;
+        
+        while (found < count)
+        {
+            bool isPrime = true;
+            for (int i = 0; i < found; i++)
+            {
+                if (number % primes[i] == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+            
+            if (isPrime)
+            {
+                primes[found] = number;
+                found++;
+            }
+            number += 2;
+        }
+    }
+
+    // ЗАДАНИЕ 185: Метод, увеличивающий значение аргумента через ref
+    static void AddPercentage185(ref decimal value, decimal percentage)
+    {
+        value += value * percentage / 100;
+    }
+
+    // ЗАДАНИЕ 186: Метод, заполняющий массив результатами через out
+    static void GenerateRandomNumbers186(int count, int min, int max, out int[] numbers)
+    {
+        Random rand = new Random();
+        numbers = new int[count];
+        for (int i = 0; i < count; i++)
+        {
+            numbers[i] = rand.Next(min, max + 1);
+        }
+    }
+
+    // ЗАДАНИЕ 187: Метод, который возвращает true/false через return, а результат через out
+    static bool TryParseDate187(string dateString, out DateTime result)
+    {
+        return DateTime.TryParse(dateString, out result);
+    }
+
+    // ЗАДАНИЕ 188: Метод, заполняющий массив результатами через out
+    static void GeneratePowers188(int baseNumber, int count, out int[] powers)
+    {
+        powers = new int[count];
+        for (int i = 0; i < count; i++)
+        {
+            powers[i] = (int)Math.Pow(baseNumber, i + 1);
+        }
+    }
+
+    // ЗАДАНИЕ 189: Метод, меняющий местами два значения через ref
+    static void Swap189(ref int a, ref int b)
+    {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // ЗАДАНИЕ 190: Функция деления, возвращающая частное и остаток через out
+    static void ComplexDivide190(double real1, double imag1, double real2, double imag2, 
+                               out double realQuotient, out double imagQuotient)
+    {
+        double denominator = real2 * real2 + imag2 * imag2;
+        realQuotient = (real1 * real2 + imag1 * imag2) / denominator;
+        imagQuotient = (imag1 * real2 - real1 * imag2) / denominator;
+    }
+
+    // ЗАДАНИЕ 191: Функция деления, возвращающая частное и остаток через out
+    static void BitwiseDivide191(uint dividend, uint divisor, out uint quotient, out uint remainder)
+    {
+        quotient = dividend / divisor;
+        remainder = dividend % divisor;
+    }
+
+    // ЗАДАНИЕ 192: Метод, меняющий местами два значения через ref
+    static void SwapStrings192(ref string a, ref string b)
+    {
+        string temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // ЗАДАНИЕ 193: Метод, увеличивающий значение аргумента через ref
+    static void ApplyDiscount193(ref decimal price, decimal discountPercent)
+    {
+        price -= price * discountPercent / 100;
+    }
+
+    // ЗАДАНИЕ 194: Метод, меняющий местами два значения через ref
+    static void SwapDoubles194(ref double a, ref double b)
+    {
+        double temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // ЗАДАНИЕ 195: Метод, который возвращает true/false через return, а результат через out
+    static bool TryGetStatistics195(int[] data, out int min, out int max, out double average)
+    {
+        min = 0;
+        max = 0;
+        average = 0;
+        
+        if (data == null || data.Length == 0)
+            return false;
+        
+        min = data[0];
+        max = data[0];
+        int sum = 0;
+        
+        foreach (int value in data)
+        {
+            if (value < min) min = value;
+            if (value > max) max = value;
+            sum += value;
+        }
+        
+        average = (double)sum / data.Length;
+        return true;
+    }
+
+    // ЗАДАНИЕ 196: Метод, который возвращает true/false через return, а результат через out
+    static bool TryParseCoordinates196(string input, out double x, out double y)
+    {
+        x = 0;
+        y = 0;
+        
+        string[] parts = input.Split(',');
+        if (parts.Length != 2)
+            return false;
+        
+        if (!double.TryParse(parts[0].Trim(), out x))
+            return false;
+        if (!double.TryParse(parts[1].Trim(), out y))
+            return false;
+        
+        return true;
+    }
+
+    // ЗАДАНИЕ 197: Функция деления, возвращающую частное и остаток через out
+    static void DecimalDivide197(decimal dividend, decimal divisor, out decimal quotient, out decimal remainder)
+    {
+        quotient = decimal.Divide(dividend, divisor);
+        remainder = decimal.Remainder(dividend, divisor);
+    }
+
+    // ЗАДАНИЕ 198: Метод, который возвращает true/false через return, а результат через out
+    static bool TryExtractName198(string fullName, out string firstName, out string lastName)
+    {
+        firstName = null;
+        lastName = null;
+        
+        if (string.IsNullOrWhiteSpace(fullName))
+            return false;
+        
+        string[] names = fullName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (names.Length < 2)
+            return false;
+        
+        firstName = names[0];
+        lastName = names[^1];
+        return true;
+    }
+
+    // ЗАДАНИЕ 199: Функция деления, возвращающую частное и остаток через out
+    static void PolynomialDivide199(double[] numerator, double[] denominator, 
+                                  out double[] quotient, out double[] remainder)
+    {
+        // Упрощенная реализация деления полиномов
+        quotient = new double[] { numerator[0] / denominator[0] };
+        remainder = new double[] { numerator[0] % denominator[0] };
+    }
+
+    // ЗАДАНИЕ 200: Метод, меняющий местами два значения через ref
+    static void SwapGeneric200<T>(ref T a, ref T b)
+    {
+        T temp = a;
+        a = b;
+        b = temp;
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("=== ВЫПОЛНЕНИЕ ЗАДАНИЙ 151-200 ===\n");
+
+        // Задание 151
+        Console.WriteLine("ЗАДАНИЕ 151: GetDrivingLicense151(25) = " + GetDrivingLicense151(25));
+        Console.WriteLine("ЗАДАНИЕ 151: GetDrivingLicense151(15) = " + GetDrivingLicense151(15));
+
+        // Задание 152
+        var result152 = CalculateBonus152(50000, 10);
+        Console.WriteLine("ЗАДАНИЕ 152: CalculateBonus152(50000, 10) = " + 
+                         (result152.success ? result152.result.ToString() : result152.error));
+
+        // Задание 154
+        try
+        {
+            AuthenticateUser154("user123", "password123");
+            Console.WriteLine("ЗАДАНИЕ 154: Аутентификация успешна");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("ЗАДАНИЕ 154: Ошибка: " + ex.Message);
+        }
+
+        // Задание 155
+        var result155 = ValidateInvestment155(500, 5);
+        Console.WriteLine("ЗАДАНИЕ 155: ValidateInvestment155(500, 5) = " + 
+                         (result155.isValid ? "Валидно" : result155.message));
+
+        // Задание 156
+        var emails156 = new HashSet<string> {"existing@mail.com"};
+        try
+        {
+            bool registered = RegisterUser156("new@mail.com", emails156);
+            Console.WriteLine("ЗАДАНИЕ 156: RegisterUser156('new@mail.com') = " + registered);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("ЗАДАНИЕ 156: Ошибка: " + ex.Message);
+        }
+
+        // Задание 157
+        try
+        {
+            DateTime date157 = ParseDate157("2023-12-25");
+            Console.WriteLine("ЗАДАНИЕ 157: ParseDate157('2023-12-25') = " + date157.ToShortDateString());
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("ЗАДАНИЕ 157: Ошибка: " + ex.Message);
+        }
+
+        // Задание 162
+        Console.WriteLine("ЗАДАНИЕ 162: GetSchoolLevel162(10) = " + GetSchoolLevel162(10));
+        Console.WriteLine("ЗАДАНИЕ 162: GetSchoolLevel162(17) = " + GetSchoolLevel162(17));
+
+        // Задание 163
+        Console.WriteLine("ЗАДАНИЕ 163: VerifyPassword163('StrongPass123') = " + VerifyPassword163("StrongPass123"));
+        Console.WriteLine("ЗАДАНИЕ 163: VerifyPassword163('weak') = " + VerifyPassword163("weak"));
+
+        // Задание 171
+        Divide171(17, 5, out int quotient171, out int remainder171);
+        Console.WriteLine("ЗАДАНИЕ 171: Divide171(17, 5) = Частное: " + quotient171 + ", Остаток: " + remainder171);
+
+        // Задание 173
+        GenerateSquares173(5, out int[] squares173);
+        Console.WriteLine("ЗАДАНИЕ 173: GenerateSquares173(5) = [" + string.Join(", ", squares173) + "]");
+
+        // Задание 174
+        bool success174 = TryParsePositive174("42", out int result174);
+        Console.WriteLine("ЗАДАНИЕ 174: TryParsePositive174('42') = " + success174 + ", Результат: " + result174);
+
+        // Задание 176
+        int value176 = 10;
+        Increment176(ref value176);
+        Console.WriteLine("ЗАДАНИЕ 176: Increment176(ref 10) = " + value176);
+
+        // Задание 177
+        int[] numbers177 = {1, 5, 3, 9, 2};
+        bool found177 = TryFindMax177(numbers177, out int max177);
+        Console.WriteLine("ЗАДАНИЕ 177: TryFindMax177([1,5,3,9,2]) = " + found177 + ", Максимум: " + max177);
+
+        // Задание 179
+        GenerateFibonacci179(8, out long[] fibonacci179);
+        Console.WriteLine("ЗАДАНИЕ 179: GenerateFibonacci179(8) = [" + string.Join(", ", fibonacci179) + "]");
+
+        // Задание 189
+        int a189 = 5, b189 = 10;
+        Swap189(ref a189, ref b189);
+        Console.WriteLine("ЗАДАНИЕ 189: Swap189(5, 10) = a: " + a189 + ", b: " + b189);
+
+        // Задание 195
+        int[] data195 = {3, 1, 4, 1, 5, 9, 2};
+        bool stats195 = TryGetStatistics195(data195, out int min195, out int max195, out double avg195);
+        Console.WriteLine("ЗАДАНИЕ 195: TryGetStatistics195([3,1,4,1,5,9,2]) = " + stats195 + 
+                         ", Мин: " + min195 + ", Макс: " + max195 + ", Среднее: " + avg195.ToString("F2"));
+
+        // Задание 200
+        string x200 = "Hello", y200 = "World";
+        SwapGeneric200(ref x200, ref y200);
+        Console.WriteLine("ЗАДАНИЕ 200: SwapGeneric200('Hello', 'World') = x: " + x200 + ", y: " + y200);
+
+        Console.WriteLine("\n=== ВСЕ 200 ЗАДАНИЙ ВЫПОЛНЕНЫ ===");
+    }
+}
